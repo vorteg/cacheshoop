@@ -3,7 +3,7 @@ import Footer from '@/components/footer/Footer'
 import FlashComponent from '@/components/flashComponent/FlashComponent'
 import MyNavBar from '@/components/myNavBar/MyNavBar'
 
-const Layout = ({ children, title = 'My Next.js App' }) => {
+const Layout = ({ children, title = 'CacheShoop' }) => {
   return (
     <>
       <Head>
