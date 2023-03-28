@@ -1,0 +1,1 @@
+import GalleryPro from './GalleryPro';
