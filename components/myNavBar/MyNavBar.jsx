@@ -15,7 +15,8 @@ const MyNavBar = () => {
     <>
       <Navbar isBordered variant="sticky">
         <Navbar.Toggle showIn="xs" />
-        <Navbar.Brand
+        <Spacer showIn="xs"/ >
+        <Navbar.Brand hideIn="xs"
           css={{
             "@xs": {
               w: "12%",
@@ -24,10 +25,11 @@ const MyNavBar = () => {
         >
           <Logo />
           <Spacer />
-          <Text b color="inherit" hideIn="xs">
+          <Text b color="inherit" >
             CACHESHOOP
           </Text>
         </Navbar.Brand>
+        
         <Navbar.Content
           enableCursorHighlight
           activeColor="warning"
@@ -122,6 +124,19 @@ const MyNavBar = () => {
           </Dropdown>
         </Navbar.Content>
         <Navbar.Collapse disableAnimation>
+          <Navbar.Brand
+          css={{
+            "@xs": {
+              w: "12%",
+            },
+          }}
+        >
+          <Logo />
+          <Spacer />
+          <Text b color="inherit" >
+            CACHESHOOP
+          </Text>
+        </Navbar.Brand>
           {collapseItems.map((item, index) => (
             <Navbar.CollapseItem
               key={item}
