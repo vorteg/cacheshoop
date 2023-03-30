@@ -16,7 +16,7 @@ const Layout = ({ children, title = 'CacheShoop' }) => {
         <FlashComponent/>
         <MyNavBar/>
       </header>
-      <main>{children}</main>
+      <main >{children}</main>
 
       {/* <Footer /> */}
     </>

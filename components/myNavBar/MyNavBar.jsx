@@ -13,7 +13,7 @@ const MyNavBar = () => {
   const buyIcon = 'https://res.cloudinary.com/dehsikb6h/image/upload/v1680202029/cachshoop/icons/icons8-buy_obhuis.gif'
   return (
     <>
-      <Navbar isBordered variant="floating" css={{position:'fixed'}}>
+      <Navbar isBordered variant="sticky" >
         <Navbar.Toggle showIn="xs" />
         <Spacer showIn="xs"/ >
         <Navbar.Brand hideIn="xs"
