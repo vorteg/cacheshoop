@@ -11,13 +11,13 @@ const Layout = ({ children, title = 'CacheShoop' }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <header data-testid="header" css>
+      <header >
         <FlashComponent/>
-        <MyNavBar/>
+        {/* <MyNavBar/> */}
       </header>
       <main>{children}</main>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

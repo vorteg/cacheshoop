@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <CustomHero/>
-        <PayForms/>
-        <GalleryPro/>
+        {/* <CustomHero/> */}
+        {/* <PayForms/> */}
+        {/* <GalleryPro/> */}
       </Layout>
     </>
   )

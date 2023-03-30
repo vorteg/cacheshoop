@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <div style={{
+    <Container css={{
             display: 'flex',
             width: 'auto',
             flexDirection:'row',
@@ -21,7 +21,7 @@ const Footer = () => {
 
             />
             
-            <Text h6 color='white'css={{padding:'$40'}}>Videojuegos</Text>
+            <Text h6 color='white'>Videojuegos</Text>
             
             <Text h6 color='white'>¿Cómo comprar?</Text>
             <Spacer css={{flex:1}}/>
@@ -31,7 +31,7 @@ const Footer = () => {
             <p>Roca 61 Zapopan Jalisco</p>
 
  </Text>
-        </div>
+        </Container>
   )
 }
 
