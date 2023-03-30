@@ -1,5 +1,5 @@
-import  {Navbar,  Link, Text, Avatar, Dropdown, Input} from "@nextui-org/react";
-// import { Layout } from "./Layout.js";
+import  {Navbar,  Link, Text, Dropdown, Input, Spacer} from "@nextui-org/react";
+import Image from 'next/image'
 import { Logo } from "./Logo.js";
 import { SearchIcon } from "./SearchIcon.jsx";
 
@@ -10,6 +10,7 @@ const MyNavBar = () => {
     "¿Cómo comprar?",
     
   ];
+  const buyIcon = 'https://res.cloudinary.com/dehsikb6h/image/upload/v1680202029/cachshoop/icons/icons8-buy_obhuis.gif'
   return (
     <>
       <Navbar isBordered variant="sticky">
@@ -22,6 +23,7 @@ const MyNavBar = () => {
           }}
         >
           <Logo />
+          <Spacer />
           <Text b color="inherit" hideIn="xs">
             CACHESHOOP
           </Text>
@@ -58,7 +60,7 @@ const MyNavBar = () => {
                 <Input
                 clearable
                 contentLeft={
-                  <SearchIcon fill="var(--nextui-colors-accents6)" size={16} />
+                  <SearchIcon fill="var(--nextui-colors-accents6)" size={30} />
                 }
                 contentLeftStyling={false}
               css={{
@@ -68,9 +70,9 @@ const MyNavBar = () => {
                 },
                 "& .nextui-input-content--left": {
                   h: "100%",
-                  ml: "$4",
+                  ml: "$0",
                   dflex: "center",
-                },
+                }
               }}
               placeholder="Search..."
             />
@@ -79,12 +81,12 @@ const MyNavBar = () => {
             
             <Navbar.Item>
               <Dropdown.Trigger>
-                <Avatar
-                  bordered
-                  as="button"
-                  color="warning"
-                  size="md"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                <Image
+                  alt='icono de compra'
+                  width={76}
+                  height={46}
+                  src={buyIcon}
+                  as='buttom'
                 />
               </Dropdown.Trigger>
             </Navbar.Item>
