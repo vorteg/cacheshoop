@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <>
       <Layout>
-        {/* <CustomHero/> 
-        <PayForms/>  */}
+        <CustomHero/> 
+        {/* <PayForms/>  */}
          <GalleryPro/>
       </Layout>
     </>
