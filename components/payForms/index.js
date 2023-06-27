@@ -1,1 +1,0 @@
-import PayForms from './PayForms';

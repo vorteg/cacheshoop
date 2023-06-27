@@ -1,1 +1,0 @@
-import Whats from './Whats';

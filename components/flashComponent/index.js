@@ -1,1 +1,0 @@
-import FlashComponent from './FlashComponent';
