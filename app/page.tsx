@@ -8,59 +8,19 @@ import {
   CardTitle, Separator
 } from "@/components/ui"
 import Hero from '@/components/Hero'
+import BannerBanco from '@/components/Banner-banco'
+import RecomendedProducts from '@/components/Recomended-Products'
 
-type Game = {
-  id: number
-  background_image: string
-  rating: number
-  name: string
-}
 
-const getGames = async (): Promise<Game[]> => {
-  const res = await fetch(`https://api.rawg.io/api/games?key=53f520bf819d4fb3b09fd3943522fe25`)
-  if (!res.ok) {
-    throw new Error("failed to fetch games")
-  }
-  const data = await res.json()
-  return data.results
-}
 
 export default async function IndexPage() {
-  const games = await getGames()
+
   return (
     <>
       <Hero />
+      <BannerBanco />
+      <RecomendedProducts />
 
-      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-        <div className="flex">
-          <div className="contents">
-            <div className="flex-1  border-2 bg-white p-8"><p className="text-black">Pague comodo y seguro</p></div>
-            <div className="flex-1  border-y-2 bg-white p-8"><p className="text-black">Hasta 3 meses sin intereses con:</p></div>
-            <div className="flex-1  border-y-2 bg-white p-8"><p className="text-black">Citibanamex</p></div>
-            <div className="flex-1  border-2 bg-white p-8"><p className="text-black">Mas medios de pago</p></div>
-          </div>
-        </div>
-      </section>
-      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-        <h1 className="text-[2rem] font-semibold">Productos recomendados</h1>
-        <div className="m-18 grid grid-cols-4 gap-12 rounded-md">
-          {games.map((game) => (
-            <div className="col-span-4 md:col-span-2 lg:col-span-1" key={game.id}>
-              <h1>{game.name}</h1>
-              <p>{game.rating}</p>
-              <div className="relative aspect-video">
-                <Image
-                  src={game.background_image}
-                  fill
-                  className="rounded-md object-cover"
-                  alt={game.name} />
-              </div>
-              {/* <img src={game.background_image} className="aspect-video w-full"></img> */}
-
-            </div>
-          ))}
-        </div>
-      </section>
       <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-[2rem] font-semibold">Consigue los mejores precios</h1>
@@ -72,7 +32,7 @@ export default async function IndexPage() {
           </CardHeader>
           <CardContent>
             <div className="relative aspect-video">
-              <Image src={games[0].background_image} fill alt="Mejores precios" className="rounded-md object-cover" />
+              {/* <Image src={games[0].background_image} fill alt="Mejores precios" className="rounded-md object-cover" /> */}
             </div>
           </CardContent>
         </Card>
@@ -88,7 +48,7 @@ export default async function IndexPage() {
           </CardHeader>
           <CardContent>
             <div className="relative aspect-video">
-              <Image src={games[1].background_image} fill alt="Categorias" className="rounded-md object-cover" />
+              {/* <Image src={games[1].background_image} fill alt="Categorias" className="rounded-md object-cover" /> */}
             </div>
           </CardContent>
         </Card>
