@@ -1,13 +1,3 @@
-# next-template
-
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
-
-## Usage
-
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
-
 ## Features
 
 - Next.js 13 App Directory
@@ -21,3 +11,16 @@ npx create-next-app -e https://github.com/shadcn/next-template
 
 Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
 # Cache-Shoop
+Borrar package-lock.json antes de usar 
+```
+    npm install
+```
+Usar el sig comando para usar la version correcta de Node:
+```
+    nvm use
+
+```
+Una vez todas las dependencias instaladas correr:
+```
+    npm run dev
+```
