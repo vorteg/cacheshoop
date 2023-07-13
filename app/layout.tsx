@@ -1,13 +1,13 @@
-import "@/styles/globals.css"
+import "@/styles/globals.scss"
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/Site-header"
+import { SiteHeader } from "@/components/SiteHeader"
 import { TailwindIndicator } from "@/components/ui"
-import { ThemeProvider } from "@/components/Theme-provider"
-import CustomFooter from '@/components/Custom-footer'
+import { ThemeProvider } from "@/components/ThemeProvider"
+import CustomFooter from '@/components/CustomFooter'
 
 export const metadata: Metadata = {
   title: {

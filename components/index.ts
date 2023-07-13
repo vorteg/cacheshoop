@@ -1,1 +1,1 @@
-export {default as MainNav} from './Main-nav'
+export {default as MainNav} from './MainNav'
