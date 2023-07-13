@@ -1,9 +1,24 @@
+'use client'
+
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image'
-import { getGames } from '@/utils/games-api'
+import { getGames, Game } from '@/utils/games-api'
 
-const RecomendedProducts = async () => {
+const RecomendedProducts = () => {
+    const [games, setGames] = useState<Game[]>([]);
 
-    const games = await getGames()
+    useEffect(() => {
+        const fetchGames = async () => {
+            try {
+                const gamesData = await getGames(); // Llama a la función getGames para obtener los juegos
+                setGames(gamesData); // Almacena los juegos en el estado
+            } catch (error) {
+                console.error('Error fetching games:', error);
+            }
+        };
+
+        fetchGames();
+    }, []);
     return (
         <>
             <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
