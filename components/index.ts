@@ -1,1 +1,2 @@
-export {default as MainNav} from './MainNav'
+import FreeShipping from "./FreeShipping";
+export {default as MainNav} from './MainNav';

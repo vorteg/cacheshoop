@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/SiteHeader"
 import { TailwindIndicator } from "@/components/ui"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import CustomFooter from '@/components/CustomFooter'
+import FreeShipping from '@/components/FreeShipping'
 
 export const metadata: Metadata = {
   title: {
@@ -41,8 +42,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
+
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+
             <div className="relative flex min-h-screen flex-col">
+              <FreeShipping />
+
               <SiteHeader />
               <div className="flex-1">{children}</div>
               <CustomFooter />
