@@ -50,7 +50,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <FreeShipping />
 
               <SiteHeader />
-              <div className="max-h-screen flex-grow overflow-y-auto mb-24">{children}</div>
+              {/* <div className="max-h-screen flex-grow overflow-y-auto mb-24">{children}</div> */}
+              <div className='flex-grow m-20' >{children}</div>
               <CustomFooter />
 
             </div>
