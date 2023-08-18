@@ -7,7 +7,7 @@ export const siteConfig = {
   mainNav: [
     {
       title: "Videojuegos",
-      href: "/videojuegos",
+      href: "/videogames",
     },
   ],
   links: {
