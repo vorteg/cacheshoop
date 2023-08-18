@@ -13,7 +13,7 @@ interface MainNavProps {
 
 function MobileMenu({ items }: MainNavProps) {
     return (
-        <div className="sticky bottom-0 left-0 w-full h-20  bg-blue-700 p-4 m-2 text-white text-center md:hidden">
+        <div className="fixed bottom-0 left-0 w-full h-20  bg-blue-700 p-4 text-white text-center md:hidden">
             <GhostButton>
                 <Link href="/" className="flex items-center space-x-2">
                     {/* <Icons.logo className="h-6 w-6" /> */}

@@ -46,14 +46,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 
-            <div className="relative flex min-h-screen flex-col">
+            <div className="relative flex max-h-screen flex-col">
               <FreeShipping />
 
               <SiteHeader />
-              <div className="flex-1">{children}</div>
+              <div className="max-h-screen flex-grow overflow-y-auto mb-24">{children}</div>
               <CustomFooter />
-              <MobileMenu />
+
             </div>
+            <MobileMenu />
             <TailwindIndicator />
           </ThemeProvider>
 
