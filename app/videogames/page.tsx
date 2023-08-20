@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import useCounterStore from '@/app/(store)/gameInfoStore'
 import { Button } from '@/components/ui'
+import useCounterStore from '../(store)/counter'
 
 function page() {
     const { count, increment } = useCounterStore()
