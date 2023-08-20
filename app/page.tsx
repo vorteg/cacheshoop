@@ -16,11 +16,10 @@ export default function IndexPage() {
     <>
       <FetchData />
       <Hero />
-
       <BannerBanco />
       <RecomendedProducts />
       <CardTemplate header="Consigue los mejores precios" num={0} />
-      <CardTemplate header="Busca por Categorias" num={1}/>
+      <CardTemplate header="Busca por Categorias" num={1} />
       <BannerHowTo />
 
 

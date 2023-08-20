@@ -1,20 +1,31 @@
 import { create } from 'zustand'
-import axios from 'axios'
-import { Game } from '@/utils/games-api'
+import { getGames } from '@/utils/games-api'
+import { Game } from '@/types/game';
 
 // Definimos el tipo de estado
 interface ModeState {
-  games: [Game] | [];
-  apiCall: any
+  games: Game[];
+  isLoading: boolean;
+  apiCall:  () => Promise<void>; 
 }
 
 // Creamos el store Zustand
 const useModeStore = create<ModeState>((set) => ({
-  games: [],
+  games:[],
+  isLoading:false,
   apiCall: async () => {
-    const res = await axios.get(`https://api.rawg.io/api/games?key=53f520bf819d4fb3b09fd3943522fe25`)
-    set((state) => ({games: res.data.results}))
-  }
+    try {
+      set({ isLoading: true }); // Marcamos isLoading como true al comenzar la llamada
+
+      const res = await getGames();
+      
+      set((state) => ({ games: res }));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      set({ isLoading: false }); // Marcamos isLoading como false al finalizar la llamada
+    }
+  },
 }));
 
 export default useModeStore;
