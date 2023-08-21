@@ -2,7 +2,7 @@
 
 function FreeShipping() {
     return (
-        <div className="fixed top-0 z-40 w-full h-4 bg-orange-200 text-xs text-center text-black p-0">ENVÍOS GRATIS EN PRODCUTOS SELECCIONADOS</div>
+        <div className="fixed top-0 left-0 right-0 z-40 bg-orange-200 text-xs text-center text-black md:p-0 md:text-sm ">ENVÍOS GRATIS EN PRODUCTOS SELECCIONADOS</div>
     )
 }
 

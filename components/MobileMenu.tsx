@@ -13,11 +13,11 @@ interface MainNavProps {
 
 function MobileMenu({ items }: MainNavProps) {
     return (
-        <div className="fixed bottom-0 left-0 w-full h-20  bg-blue-700 p-4 text-white text-center md:hidden">
+        <div className="relative bottom-0 left-0 w-full h-20  bg-blue-700 p-4 text-white text-center md:hidden">
             <GhostButton>
                 <Link href="/" className="flex items-center space-x-2">
                     {/* <Icons.logo className="h-6 w-6" /> */}
-                    <img src={siteConfig.images.logo} className="h-10 w-10" />
+                    <img src={siteConfig.images.logo} alt='logo' className="h-10 w-10" />
                     <span className="inline-block font-bold">{siteConfig.name}</span>
                 </Link>
 

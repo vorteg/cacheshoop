@@ -11,19 +11,24 @@ interface ModeState {
 
 // Creamos el store Zustand
 const useModeStore = create<ModeState>((set) => ({
-  games:[],
-  isLoading:false,
+  games: [],
+  isLoading: false,
   apiCall: async () => {
     try {
-      set({ isLoading: true }); // Marcamos isLoading como true al comenzar la llamada
+      set({ isLoading: true });
 
       const res = await getGames();
-      
-      set((state) => ({ games: res }));
+
+      set((state) => {
+        if (state.games.length === 0) {
+          return { games: res };
+        }
+        return state;
+      });
     } catch (error) {
       console.error(error);
     } finally {
-      set({ isLoading: false }); // Marcamos isLoading como false al finalizar la llamada
+      set({ isLoading: false });
     }
   },
 }));

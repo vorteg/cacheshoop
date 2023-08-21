@@ -23,8 +23,6 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
   },
 }
 
@@ -36,26 +34,27 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        {/* <head /> */}
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "bg-background font-sans antialiased",
             fontSans.variable
           )}
         >
 
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 
-            <div className="relative flex max-h-screen flex-col">
+            <div className="relative flex flex-col min-w-[320px] min-h-[784px] md:min-w-[640px] md:min-h-[1024px] lg:min-w-[1024px] lg:min-h-[768px] xl:min-w-[1280px] xl:min-h-[1024px]">
               <FreeShipping />
-
               <SiteHeader />
-              {/* <div className="max-h-screen flex-grow overflow-y-auto mb-24">{children}</div> */}
-              <div className='flex-grow m-20' >{children}</div>
+              <div className='flex flex-col items-center justify-center'>
+                <div className='w-full'>
+                  {children}
+                </div>
+              </div>
               <CustomFooter />
-
+              <MobileMenu />
             </div>
-            <MobileMenu />
             <TailwindIndicator />
           </ThemeProvider>
 

@@ -31,7 +31,7 @@ const CardTemplate = ({ header, num }: Props) => {
       <div className="flex flex-col items-center gap-2">
         <h1 className="text-[2rem] font-semibold">{header}</h1>
       </div>
-      <Card className="w-[35rem]">
+      <Card className="w-full md:w-[35rem]">
         <CardHeader>
           <CardTitle>Videojuegos</CardTitle>
           <CardDescription>desde $35</CardDescription>
@@ -40,9 +40,9 @@ const CardTemplate = ({ header, num }: Props) => {
           <div className="relative aspect-video">
             <Image
               src={games[num].background_image}
-              fill alt="Mejores precios"
+              fill
+              alt="Mejores precios"
               className="rounded-md object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>
         </CardContent>

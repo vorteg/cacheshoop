@@ -7,8 +7,9 @@ interface Game {
 }
 
 async function loadgame(id: number) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/games/${id}`)
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
   const data = await res.json()
+
   return data
 
 }
@@ -17,23 +18,31 @@ async function loadgame(id: number) {
 async function page({ params }: any) {
   try {
     const game: Game = await loadgame(params.gameId)
+    console.log(game)
     if (!game.id || !game.title || !game.userId || !game.body) {
       throw new Error('Videojuego no existente!');
     }
 
     return (
-      <div>
-        <h1>Este es el  titulo: {game.title}</h1>
-        <h2>Id:{game.id}</h2>
-        <h3>UserID:{game.userId}</h3>
-        <p> Esta la descripcion: {game.body}</p>
-      </div>
+      <section className=" h-screen container grid items-center gap-6 pb-8 pt-6 md:py-10">
+        <div>
+          <h1>Este es el  titulo: {game.title}</h1>
+          <h2>Id:{game.id}</h2>
+          <h3>UserID:{game.userId}</h3>
+          <p> Esta la descripcion: {game.body}</p>
+        </div>
+      </section>
     )
 
   } catch (error) {
     console.log(error)
     //ToDo:Revisar como lanzar la pagina de NotFound
-    return (<><h1>Error!</h1></>)
+    return (<>
+      <section className=" h-screen container grid items-center gap-6 pb-8 pt-6 md:py-10">
+        <h1>Error!</h1>
+      </section>
+
+    </>)
   }
 
 
