@@ -5,6 +5,7 @@ import CardTemplate from '@/components/CardTemplate'
 import BannerHowTo from '@/components/BannerHowTo'
 import FreeShipping from '@/components/FreeShipping'
 import FetchData from '@/components/FetchData'
+import FloatingButton from '@/components/FloatingButton'
 
 
 
@@ -21,6 +22,7 @@ export default function IndexPage() {
       <CardTemplate header="Consigue los mejores precios" num={0} />
       <CardTemplate header="Busca por Categorias" num={1} />
       <BannerHowTo />
+      <FloatingButton />
 
 
     </>
