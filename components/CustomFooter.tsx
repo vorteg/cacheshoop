@@ -1,5 +1,6 @@
 import { siteConfig } from '@/config/site'
 import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
 
 const CustomFooter = () => {
@@ -12,7 +13,18 @@ const CustomFooter = () => {
               <Link href="/" className="flex items-center">
 
                 {/* <Image src="https://res.cloudinary.com/dehsikb6h/image/upload/v1686791940/cachshoop/logo/appicon-style-a-cute-happy-astronaut-siamese-cat--flat-icon-717144716_p7aslq_cxc7q3.png" fill alt="Mejores precios" className="rounded-md object-cover"/> */}
-                <img src="https://res.cloudinary.com/dehsikb6h/image/upload/v1686791940/cachshoop/logo/appicon-style-a-cute-happy-astronaut-siamese-cat--flat-icon-717144716_p7aslq_cxc7q3.png" className="mr-3 h-8" alt="CacheShoop Logo" />
+                {/* <img src="https://res.cloudinary.com/dehsikb6h/image/upload/v1686791940/cachshoop/logo/appicon-style-a-cute-happy-astronaut-siamese-cat--flat-icon-717144716_p7aslq_cxc7q3.png" className="mr-3 h-8" alt="CacheShoop Logo" /> */}
+
+                <Image
+                  src={siteConfig.images.logo}
+                  alt="CacheShoop Logo"
+                  className="mr-3 h-8"
+                  width={44}
+                  height={38}
+                  quality="100"
+                />
+
+
                 <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">Cache Shoop</span>
 
               </Link>

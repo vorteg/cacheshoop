@@ -43,6 +43,7 @@ const CardTemplate = ({ header, num }: Props) => {
               fill
               alt="Mejores precios"
               className="rounded-md object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>
         </CardContent>
