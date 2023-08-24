@@ -30,7 +30,7 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout( { children }: RootLayoutProps ) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -44,13 +44,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 
-            <div className="relative flex flex-col min-w-[320px] min-h-[784px] md:min-w-[640px] md:min-h-[1024px] lg:min-w-[1024px] lg:min-h-[768px] xl:min-w-[1280px] xl:min-h-[1024px]">
+            <div className="relative flex flex-col min-w-[320px] min-h-screen md:min-w-[640px] md:min-h-screen lg:min-w-[1024px] lg:min-h-screen xl:min-w-[1280px] xl:min-h-screen">
               <FreeShipping />
               <SiteHeader />
-              <div className='flex flex-col items-center justify-center'>
-                <div className='w-full'>
-                  {children}
-                </div>
+              <div className='pt-0 p-5 md:pb-64 md:pt-16 w-full flex-grow-1 flex-shrink-0 flex flex-col items-center justify-center'>
+                {children}
               </div>
               <CustomFooter />
               <MobileMenu />

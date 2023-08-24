@@ -2,15 +2,18 @@
 
 import { useEffect } from 'react';
 import useModeStore from '@/app/(store)/gameInfoStore'
+// import useProductsStore from '@/app/(store)/products';
 
 function FetchData() {
     const { apiCall, isLoading } = useModeStore()
+    // const prd = useProductsStore()
 
-    useEffect(() => {
+    useEffect( () => {
         apiCall()
-    }, [])
+        // prd.apiCall()
+    }, [] )
 
-    if (isLoading) {
+    if ( isLoading ) {
         return <p>Cargando...</p>
     }
     return (

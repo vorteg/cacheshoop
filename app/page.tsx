@@ -4,6 +4,7 @@ import RecomendedProducts from '@/components/RecomendedProducts'
 import CardTemplate from '@/components/CardTemplate'
 import BannerHowTo from '@/components/BannerHowTo'
 import FetchData from '@/components/FetchData'
+import AuthButton from "../components/AuthButtonClient";
 
 
 
@@ -13,6 +14,7 @@ export default function IndexPage() {
   return (
 
     <>
+
       <FetchData />
       <Hero />
       <BannerBanco />

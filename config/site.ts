@@ -9,6 +9,10 @@ export const siteConfig = {
       title: "Videojuegos",
       href: "/videogames",
     },
+    {
+      title: "Productos",
+      href: "/products",
+    },
   ],
   links: {
     instagram: "https://www.instagram.com/cacheshoop",

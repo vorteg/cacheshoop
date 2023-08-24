@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site"
 import { buttonVariants, Icons } from "@/components/ui"
 import MainNav from "@/components/MainNav"
 import { ThemeToggle } from "@/components/ThemeToggle"
+import { AuthButtonServer } from '@/components/AuthButtonServer'
 
 export function SiteHeader() {
   return (
@@ -18,10 +19,10 @@ export function SiteHeader() {
               rel="noreferrer"
             >
               <div
-                className={buttonVariants({
+                className={buttonVariants( {
                   size: "sm",
                   variant: "ghost",
-                })}
+                } )}
               >
                 <Icons.car />
               </div>
@@ -33,10 +34,10 @@ export function SiteHeader() {
               rel="noreferrer"
             >
               <div
-                className={buttonVariants({
+                className={buttonVariants( {
                   size: "sm",
                   variant: "ghost",
-                })}
+                } )}
               >
                 <Icons.instagram />
                 {/* <span className="sr-only">Instagram</span> */}
@@ -44,6 +45,12 @@ export function SiteHeader() {
             </Link>
 
             <ThemeToggle />
+            <div className={buttonVariants( {
+              size: "sm",
+              variant: "ghost",
+            } )}>
+              <AuthButtonServer />
+            </div>
           </nav>
         </div>
       </div>
