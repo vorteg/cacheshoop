@@ -43,6 +43,7 @@
     "@typescript-eslint/parser": "^5.59.7",
     "autoprefixer": "^10.4.14",
     "cypress": "^12.16.0",
+    "encoding": "^0.1.13",
     "eslint": "^7.32.0",
     "eslint-config-next": "^12.0.4",
     "eslint-config-prettier": "^8.8.0",
