@@ -31,7 +31,7 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout( { children }: RootLayoutProps ) {
-  const siteHeader = await SiteHeader()
+
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -47,7 +47,7 @@ export default async function RootLayout( { children }: RootLayoutProps ) {
 
             <div className="relative flex flex-col min-w-[320px] min-h-screen md:min-w-[640px] md:min-h-screen lg:min-w-[1024px] lg:min-h-screen xl:min-w-[1280px] xl:min-h-screen">
               <FreeShipping />
-              {siteHeader}
+              <SiteHeader />
               <div className='pt-0 p-5 md:pb-64 md:pt-16 w-full flex-grow-1 flex-shrink-0 flex flex-col items-center justify-center'>
                 {children}
               </div>

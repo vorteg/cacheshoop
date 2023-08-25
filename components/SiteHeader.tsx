@@ -6,8 +6,7 @@ import MainNav from "@/components/MainNav"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { AuthButtonServer } from '@/components/AuthButtonServer'
 
-export async function SiteHeader() {
-  const sign = await AuthButtonServer()
+export function SiteHeader() {
   return (
     <header className="fixed top-4 z-30 w-full border-b bg-background hidden md:block">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
@@ -50,7 +49,7 @@ export async function SiteHeader() {
               size: "sm",
               variant: "ghost",
             } )}>
-              {sign}
+              {/* <AuthButtonServer /> */}
             </div>
           </nav>
         </div>

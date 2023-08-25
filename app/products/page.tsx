@@ -15,12 +15,13 @@ async function page() {
   // const { products, apiCall } = useProductsStore()
 
   // console.log(products)
-  // const products = await dto()
+  const products = await dto()
   // console.log(products)
-  {/* {JSON.stringify( products )} */ }
+
   return (
     <>
       <section className="w-full container grid items-center gap-6 pb-8 pt-6">
+        {JSON.stringify( products )}
 
         <div className="container mx-auto max-w-4xl">
           <h1 className="text-3xl font-bold mb-6">Productos disponibles</h1>
