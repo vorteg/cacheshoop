@@ -3,6 +3,8 @@ import { cookies } from 'next/headers';
 
 import { Product } from "../types/product";
 
+
+
 export default async function dto(){
    
  try {
