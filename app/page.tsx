@@ -4,7 +4,8 @@ import RecomendedProducts from '@/components/RecomendedProducts'
 import CardTemplate from '@/components/CardTemplate'
 import BannerHowTo from '@/components/BannerHowTo'
 import FetchData from '@/components/FetchData'
-import AuthButton from "../components/AuthButtonClient";
+import FloatingButton from '@/components/FloatingButton'
+
 
 
 
@@ -22,6 +23,7 @@ export default function IndexPage() {
       <CardTemplate header="Consigue los mejores precios" num={0} />
       <CardTemplate header="Busca por Categorias" num={1} />
       <BannerHowTo />
+      <FloatingButton />
 
 
     </>
