@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import CardProduct from "../../components/CardProduct";
-
+//ToDOAgregar map para recorrer los productos
 
 async function page() {
   // const { count, increment } = useCounterStore()
