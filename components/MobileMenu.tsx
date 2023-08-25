@@ -6,6 +6,7 @@ import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import GhostButton from "./ui/GhostButton";
+import Image from "next/image";
 
 interface MainNavProps {
     items?: NavItem[]
@@ -17,8 +18,18 @@ function MobileMenu({ items }: MainNavProps) {
             <GhostButton>
                 <Link href="/" className="flex items-center space-x-2">
                     {/* <Icons.logo className="h-6 w-6" /> */}
-                    <img src={siteConfig.images.logo} alt='logo' className="h-10 w-10" />
-                    <span className="inline-block font-bold">{siteConfig.name}</span>
+                    {/* <img src={siteConfig.images.logo} alt='logo' className="h-10 w-10" /> */}
+
+                    <Image
+                        src={siteConfig.images.logo}
+                        alt="Descripción de la imagen"
+                        width={44}
+                        height={38}
+                        quality="100"
+                    />
+
+                    <span className="font-bold">{siteConfig.name}</span>
+
                 </Link>
 
             </GhostButton>
