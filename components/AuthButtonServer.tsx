@@ -1,6 +1,7 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import AuthButton from "./AuthButtonClient";
+import React from 'react';
 
 
 export async function AuthButtonServer() {
