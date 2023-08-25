@@ -6,7 +6,10 @@ import MainNav from "@/components/MainNav"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { AuthButtonServer } from '@/components/AuthButtonServer'
 
-export function SiteHeader() {
+
+
+export default async function SiteHeader() {
+  const test = await AuthButtonServer()
   return (
     <header className="fixed top-4 z-30 w-full border-b bg-background hidden md:block">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
@@ -40,7 +43,6 @@ export function SiteHeader() {
                 } )}
               >
                 <Icons.instagram />
-                {/* <span className="sr-only">Instagram</span> */}
               </div>
             </Link>
 
@@ -49,7 +51,8 @@ export function SiteHeader() {
               size: "sm",
               variant: "ghost",
             } )}>
-              {/* <AuthButtonServer /> */}
+
+              {test}
             </div>
           </nav>
         </div>
@@ -57,3 +60,4 @@ export function SiteHeader() {
     </header>
   )
 }
+
