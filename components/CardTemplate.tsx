@@ -1,4 +1,4 @@
-'use client'
+
 import React from 'react';
 import {
   Card,
@@ -8,21 +8,22 @@ import {
   CardTitle
 } from "@/components/ui";
 import Image from 'next/image';
-import useModeStore from '@/app/(store)/gameInfoStore';
+import { readGamesAction, readLoadingGameAction } from '@/app/(store)/storeGames/actions/gameActions';
 
 interface Props {
   header: string;
   num: number;
 }
 
-const CardTemplate = ({ header, num }: Props) => {
-  const { games, isLoading } = useModeStore();
+const CardTemplate = async ( { header, num }: Props ) => {
+  const games = await readGamesAction()
+  const isLoading = await readGamesAction()
 
-  if (isLoading) {
+  if ( isLoading ) {
     return <p>Cargando...</p>;
   }
 
-  if (games.length === 0) {
+  if ( games.length === 0 ) {
     return <p>No hay datos disponibles.</p>;
   }
 
@@ -39,7 +40,7 @@ const CardTemplate = ({ header, num }: Props) => {
         <CardContent>
           <div className="relative aspect-video">
             <Image
-              src={games[num].background_image}
+              src={games[ num ].url}
               fill
               alt="Mejores precios"
               className="rounded-md object-cover"

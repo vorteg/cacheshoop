@@ -1,7 +1,4 @@
-import * as React from "react"
 import Link from "next/link"
-import { v4 as uuidv4 } from 'uuid';
-
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
@@ -12,14 +9,11 @@ interface MainNavProps {
     items?: NavItem[]
 }
 
-function MobileMenu({ items }: MainNavProps) {
+function MobileMenu( { items }: MainNavProps ) {
     return (
         <div className="relative bottom-0 left-0 w-full h-20  bg-blue-700 p-4 text-white text-center md:hidden">
             <GhostButton>
                 <Link href="/" className="flex items-center space-x-2">
-                    {/* <Icons.logo className="h-6 w-6" /> */}
-                    {/* <img src={siteConfig.images.logo} alt='logo' className="h-10 w-10" /> */}
-
                     <Image
                         src={siteConfig.images.logo}
                         alt="Descripción de la imagen"
@@ -37,11 +31,10 @@ function MobileMenu({ items }: MainNavProps) {
             {items?.length ? (
                 <nav className="flex gap-6">
                     {items?.map(
-                        (item, index) =>
+                        ( item, index ) =>
                             item.href && (
-                                <GhostButton key={uuidv4()}>
+                                <GhostButton key={index.toString()}>
                                     <Link
-                                        key={uuidv4()}
                                         href={item.href}
                                         className={cn(
                                             "flex items-center text-sm font-medium text-muted-foreground",

@@ -12,9 +12,6 @@ const CustomFooter = () => {
             <div className="mb-6 md:mb-0">
               <Link href="/" className="flex items-center">
 
-                {/* <Image src="https://res.cloudinary.com/dehsikb6h/image/upload/v1686791940/cachshoop/logo/appicon-style-a-cute-happy-astronaut-siamese-cat--flat-icon-717144716_p7aslq_cxc7q3.png" fill alt="Mejores precios" className="rounded-md object-cover"/> */}
-                {/* <img src="https://res.cloudinary.com/dehsikb6h/image/upload/v1686791940/cachshoop/logo/appicon-style-a-cute-happy-astronaut-siamese-cat--flat-icon-717144716_p7aslq_cxc7q3.png" className="mr-3 h-8" alt="CacheShoop Logo" /> */}
-
                 <Image
                   src={siteConfig.images.logo}
                   alt="CacheShoop Logo"
