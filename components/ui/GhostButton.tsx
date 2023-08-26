@@ -1,18 +1,18 @@
 import { buttonVariants } from './Button'
-import React from 'react';
+import { FC, ReactNode } from 'react';
 
 
 interface GhostButtonProps {
     key?: string;
-    children?: React.ReactNode;
+    children?: ReactNode;
 }
 
-const GhostButton: React.FC<GhostButtonProps> = ({ key, children }) => {
+const GhostButton: FC<GhostButtonProps> = ( { key, children } ) => {
     return (
-        <div key={key} className={buttonVariants({
+        <div key={key} className={buttonVariants( {
             size: "sm",
             variant: "ghost",
-        })}>
+        } )}>
             {children}
         </div>
     );

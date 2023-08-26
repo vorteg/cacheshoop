@@ -1,8 +1,6 @@
 import {
-  LucideProps,
   Moon,
   SunMedium,
-  Twitter,
   Instagram,
   ShoppingCart,
   type Icon as LucideIcon,

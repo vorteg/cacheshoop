@@ -1,7 +1,5 @@
-import * as React from "react"
-import Link from "next/link"
-import { v4 as uuidv4 } from 'uuid';
 
+import Link from "next/link"
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
@@ -12,13 +10,11 @@ interface MainNavProps {
   items?: NavItem[]
 }
 
-export default function MainNav({ items }: MainNavProps) {
+export default function MainNav( { items }: MainNavProps ) {
   return (
     <div className="flex gap-6 md:gap-10">
       <GhostButton>
         <Link href="/" className="flex items-center space-x-2">
-          {/* <Icons.logo className="h-6 w-6" /> */}
-          {/* <img src={siteConfig.images.logo} className="h-10 w-10" /> */}
           <Image
             src={siteConfig.images.logo}
             alt="CacheShoop Logo"
@@ -35,11 +31,10 @@ export default function MainNav({ items }: MainNavProps) {
       {items?.length ? (
         <nav className="flex gap-6">
           {items?.map(
-            (item, index) =>
+            ( item, index ) =>
               item.href && (
-                <GhostButton key={uuidv4()}>
+                <GhostButton key={index.toString()}>
                   <Link
-                    key={uuidv4()}
                     href={item.href}
                     className={cn(
                       "flex items-center text-sm font-medium text-muted-foreground",

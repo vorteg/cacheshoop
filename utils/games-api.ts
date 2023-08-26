@@ -1,13 +1,12 @@
-import { Game } from '@/types/game'
+import axios from 'axios';
+import { Game } from '@/types/game';
 
-export const getGames = async (): Promise<Game[]> => {
-    const res = await fetch(`https://api.rawg.io/api/games?key=53f520bf819d4fb3b09fd3943522fe25`)
-    if (!res.ok) {
-        throw new Error("failed to fetch games")
-    }
-    const data = await res.json()
-    return data.results
-}
-
-
-//To do Agregar try catch
+export const getGamesAPI = async (url: string): Promise<Game[]> => {
+  try {
+    const response = await axios.get(url);
+    return response.data as Game[]; // Assuming the response structure has a "results" property
+  } catch (error) {
+    console.error('Error:', error);
+    throw new Error('Failed to fetch games');
+  }
+};
