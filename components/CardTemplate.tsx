@@ -17,7 +17,7 @@ interface Props {
 
 const CardTemplate = async ( { header, num }: Props ) => {
   const games = await readGamesAction()
-  const isLoading = await readGamesAction()
+  const isLoading = await readLoadingGameAction()
 
   if ( isLoading ) {
     return <p>Cargando...</p>;
