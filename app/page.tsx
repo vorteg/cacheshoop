@@ -4,7 +4,7 @@ import RecomendedProducts from '@/components/RecomendedProducts'
 import CardTemplate from '@/components/CardTemplate'
 import BannerHowTo from '@/components/BannerHowTo'
 import { fetchGamesAction } from '@/app/(store)/storeGames/actions/gameActions'
-
+import FloatingButton from '@/components/FloatingButton'
 export default async function IndexPage() {
 
   await fetchGamesAction()
@@ -20,6 +20,7 @@ export default async function IndexPage() {
       {/* @ts-expect-error Async Server Component */}
       <CardTemplate header="Busca por Categorias" num={1} />
       <BannerHowTo />
+      <FloatingButton />
     </>
   )
 }
