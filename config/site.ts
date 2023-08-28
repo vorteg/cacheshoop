@@ -23,6 +23,7 @@ export const siteConfig = {
   },
   apiUrls:{
     gamesApi:'https://api.rawg.io/api/games?key=53f520bf819d4fb3b09fd3943522fe25',
-    testPhotos:'https://jsonplaceholder.typicode.com/photos'
+    testPhotos:'https://jsonplaceholder.typicode.com/photos',
+    fakeProducts:'https://fakestoreapi.com/products'
   }
 }
