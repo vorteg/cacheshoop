@@ -2,7 +2,7 @@
 
 function FilterProduct() {
   return (
-    <section className='bg-slate-300  p-4 rounded-md flex flex-col'>
+    <section className='hidden md:grid md:col-span-1 bg-slate-300  p-4 rounded-md flex flex-col'>
       <p className='text-gray-700 text-xl font-semibold mb-4'>Personaliza la Busqueda</p>
       <div className="space-y-2">
         <select className="w-full p-2 border border-gray-300 rounded-md">
