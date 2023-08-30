@@ -16,7 +16,7 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
         <Image
           src={product.image}
           alt={product.title}
-          className="w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-3xl"
+          className="w-24 h-24  overflow-hidden rounded-3xl"
           width={100}
           height={100}
           sizes='(max-width: 768px) 120px, 120px, (max-width: 1024px) 150px, 150px'

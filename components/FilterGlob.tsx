@@ -5,7 +5,7 @@ import FilterProduct from './FilterProduct';
 
 
 function FilterGlob() {
-  const [ isFiltersOpen, setIsFiltersOpen ] = useState( false );
+  const [ isFiltersOpen, setIsFiltersOpen ] = useState( true );
 
   const toggleFilters = () => {
     setIsFiltersOpen( !isFiltersOpen );
