@@ -8,6 +8,7 @@ import {
   CardTitle
 } from "@/components/ui";
 import Image from 'next/image';
+import Loading from '@/components/Loading';
 import { readGamesAction, readLoadingGameAction } from '@/app/(store)/storeGames/actions/gameActions';
 
 interface Props {
@@ -20,7 +21,7 @@ const CardTemplate = async ( { header, num }: Props ) => {
   const isLoading = await readLoadingGameAction()
 
   if ( isLoading ) {
-    return <p>Cargando...</p>;
+    return <Loading />;
   }
 
   if ( games.length === 0 ) {

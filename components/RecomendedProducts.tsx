@@ -1,13 +1,36 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Game } from '@/types/game';
 import Link from 'next/link';
-import { readGamesAction } from '@/app/(store)/storeGames/actions/gameActions';
+import { readGamesAction, readLoadingGameAction } from '@/app/(store)/storeGames/actions/gameActions';
+
 
 
 const RecomendedProducts = async () => {
     const data = await readGamesAction()
+    const isLoading = await readLoadingGameAction()
+
+    if ( isLoading ) {
+      return(
+        <>
+            <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+                <Skeleton className='w-[30rem] h-[2rem] bg-gray-300 dark:bg-blue-900 rounded-md'/>
+                <div className='flex justify-center gap-4'>
+                    <Skeleton className='w-[20rem] h-[8rem] bg-gray-300 dark:bg-blue-900 rounded-md'/>
+                    <Skeleton className='w-[20rem] h-[8rem] bg-gray-300 dark:bg-blue-900 rounded-md'/>
+                    <Skeleton className='w-[20rem] h-[8rem] bg-gray-300 dark:bg-blue-900 rounded-md'/>
+                    <Skeleton className='w-[20rem] h-[8rem] bg-gray-300 dark:bg-blue-900 rounded-md'/>   
+                </div>
+            </section>
+        </>
+      );
+    }
+  
+    if ( data.length === 0 ) {
+      return <p>No hay datos disponibles.</p>;
+    }
 
     return (
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
