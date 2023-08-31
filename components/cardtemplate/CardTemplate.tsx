@@ -8,7 +8,7 @@ import {
   CardTitle
 } from "@/components/ui";
 import Image from 'next/image';
-import Loading from '@/components/Loading';
+import Loading from '@/components/cardtemplate/Loading';
 import { readGamesAction, readLoadingGameAction } from '@/app/(store)/storeGames/actions/gameActions';
 
 interface Props {
