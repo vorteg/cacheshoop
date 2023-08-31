@@ -23,7 +23,7 @@ export const siteConfig = {
     hero:"https://res.cloudinary.com/dehsikb6h/image/upload/v1680214325/cachshoop/heros/store_gw3aew.webp"
   },
   apiUrls:{
-    gamesApi:'https://api.rawg.io/api/games?key=53f520bf819d4fb3b09fd3943522fe25',
+    gamesApi:'https://api.rawg.io/api/games?key=53f520bf819d4fb3b09fd3943522fe25&ordering=released&metacritic=87,100&platforms=1,2&dates=2022-01-01,2023-12-31',
     testPhotos:'https://jsonplaceholder.typicode.com/photos',
     fakeProducts:'https://fakestoreapi.com/products'
   }

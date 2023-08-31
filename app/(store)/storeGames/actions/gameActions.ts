@@ -5,7 +5,7 @@ import { siteConfig } from '@/config/site';
 export const fetchGamesAction = async () => {
   try {
     useGameStore.setState({isLoading:true})
-    const url = siteConfig.apiUrls.testPhotos;
+    const url = siteConfig.apiUrls.gamesApi;
     const games = await getGamesAPI(url);
     useGameStore.setState({games:games})
 

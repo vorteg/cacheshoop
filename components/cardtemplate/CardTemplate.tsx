@@ -41,7 +41,7 @@ const CardTemplate = async ( { header, num }: Props ) => {
         <CardContent>
           <div className="relative aspect-video">
             <Image
-              src={games[ num ].url}
+              src={games[ num ].background_image}
               fill
               alt="Mejores precios"
               className="rounded-md object-cover"
