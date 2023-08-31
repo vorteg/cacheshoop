@@ -32,15 +32,16 @@ async function page() {
               <CardProduct product={item} key={item.id} />
             ) )
           }
+          <Link href="#" className="text-blue-500 hover:underline">
+            Siguiente
+          </Link>
 
         </section>
 
 
       </section>
 
-      {/* <Link href="#" className="text-blue-500 hover:underline">
-        Siguiente
-      </Link> */}
+
     </section>
   )
 }
