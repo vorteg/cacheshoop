@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import { FProduct } from '@/types/fproduct'
+import AddingtoCart from './AddingtoCart';
 
 interface CardProductProps {
   product: FProduct;
@@ -23,18 +24,23 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
         <div >
           <h3 className="text-sm ">
             <Link href={"/products/1"}>
-              <span aria-hidden="true" className="absolute inset-0"  ></span>
+              <span aria-hidden="true" className="absolute"  ></span>
               {product.title}
             </Link>
 
 
+
           </h3>
-          <p className="mt-1 text-sm ">
-            black
-          </p>
         </div>
         <p className="text-sm font-medium ">${product.price}</p>
       </div>
+      <AddingtoCart product={{
+        id: product.id,
+        name: product.title,
+        url: product.image,
+        quantity: 1,
+        price: product.price
+      }} />
 
 
 

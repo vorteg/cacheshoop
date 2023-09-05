@@ -19,7 +19,7 @@ function QuotePage() {
 
   useEffect( () => {
     const updatedTotalProducts = cart.reduce( ( total, product ) => total + product.quantity, 0 );
-    const updateSubtotal = calculateTotalCost()
+    const updateSubtotal = parseFloat( calculateTotalCost().toFixed( 2 ) )
     const updatedTotalCost = parseFloat( ( updateSubtotal + shippingCost ).toFixed( 2 ) );
 
     setTotalProducts( updatedTotalProducts );

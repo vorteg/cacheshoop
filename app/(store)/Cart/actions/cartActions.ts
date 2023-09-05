@@ -6,6 +6,10 @@ export const getProductFromCart = (index:number) => {
  return cart[index]
 }
 
+export function getNumberProducts () {
+ const {cart} = useCartStore.getState()
+ return cart.length
+}
 
 export const addToCart = (item: CProduct) => useCartStore.setState((state) =>({cart:[...state.cart,item]}))
 

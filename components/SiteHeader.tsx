@@ -5,6 +5,7 @@ import { buttonVariants, Icons } from "@/components/ui"
 import MainNav from "@/components/MainNav"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { AuthButtonServer } from '@/components/AuthButtonServer'
+import CartStatus from './CartStatus'
 
 
 
@@ -26,7 +27,7 @@ export default async function SiteHeader() {
                   variant: "ghost",
                 } )}
               >
-                <Icons.car />
+                <CartStatus />
               </div>
 
             </Link>
