@@ -1,6 +1,7 @@
 'use client'
 
 import { useCartStore } from '@/app/(store)/Cart/slices/cartSlice';
+import { CProduct } from '@/app/(store)/Cart/types';
 import { useEffect, useState } from 'react';
 
 function QuotePage() {

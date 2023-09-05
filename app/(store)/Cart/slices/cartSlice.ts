@@ -1,4 +1,5 @@
 import {create} from 'zustand';
+import { CProduct } from '../types';
 
 interface CartProdState {
   cart: CProduct[];

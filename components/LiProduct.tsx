@@ -1,6 +1,7 @@
 'use client'
 
 import { updateProductQuantity } from '@/app/(store)/Cart/actions/cartActions';
+import { CProduct } from '@/app/(store)/Cart/types';
 
 
 

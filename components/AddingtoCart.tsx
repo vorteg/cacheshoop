@@ -4,6 +4,7 @@ import { useCartStore } from '@/app/(store)/Cart/slices/cartSlice';
 
 import { Button } from './ui'
 import { addToCart, updateProductQuantity } from '@/app/(store)/Cart/actions/cartActions'
+import { CProduct } from '@/app/(store)/Cart/types';
 
 function AddingtoCart( { product }: { product: CProduct } ) {
 

@@ -4,6 +4,7 @@ import { useCartStore } from '@/app/(store)/Cart/slices/cartSlice'
 import LiProduct from './LiProduct'
 import { removeFromCart } from '@/app/(store)/Cart/actions/cartActions';
 import { useEffect } from 'react';
+import { CProduct } from '@/app/(store)/Cart/types';
 
 function UlCartProdocts() {
   const { cart } = useCartStore();

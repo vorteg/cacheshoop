@@ -1,4 +1,5 @@
 import { useCartStore } from '../slices/cartSlice';
+import { CProduct } from '../types';
 
 
 export const getProductFromCart = (index:number) => {
