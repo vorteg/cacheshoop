@@ -1,4 +1,4 @@
-interface CProduct {
+export interface CProduct {
   id:number
   name:string
   url:string
