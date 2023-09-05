@@ -1,32 +1,30 @@
 
-import { Button } from '@/components/ui'
+import QuotePage from '@/components/QuotePage'
+import UlCartProdocts from '@/components/UlCartProdocts'
 
 
 function page() {
   return (
-    <section className='mx-20 mt-16 py-10 grid grid-cols-1 md:grid-cols-[60%,auto] md:gap-5'>
-      <div className='bg-slate-500 w-full rounded-lg grid grid-rows-[4%,auto] md:grid md:col-span-1'>
+    <section className='mt-4 p-2 grid gap-5 content-center justify-center grid-cols-1 md:mt-16 md:grid-cols-[60%,auto] lg:grid-cols-[45%,auto] xl:grid-cols-[35%,auto] 2xl:grid-cols-[25%,auto]'>
+      <div className='min-w-min max-w-2xl bg-slate-500 w-full rounded-lg  md:grid md:col-span-1'>
+        <h2 className="text-center text-md md:text-xl font-semibold">Carrito de Compra</h2>
+        {/* Aquí colocas la lista de productos del carrito */}
+        < UlCartProdocts />
 
       </div>
 
-      <div className='bg-slate-500 w-full rounded-lg grid grid-rows-[20%,70%,auto]'>
-        <p className='px-5 py-5 font-bold text-md'>Resumen de compra</p>
-        <div className='m-5 grid grid-cols-2'>
-          <div >
-            <p>Producto</p>
-            <p>Envio</p>
-            <p className='font-bold'>Total</p>
-          </div>
-          <div className='text-right mb-5' >
-            <p>$539</p>
-            <p>Gratis</p>
-            <p className='font-bold'>$539</p>
-          </div>
-          <Button className='w-60 mx-4 '>Continuar Compra</Button>
-        </div>
+      <div className='min-w-min w-full grid md:grid-cols-1 gap-2'>
 
+        <h2 className=" bg-slate-500 text-center rounded-md row-span-1 text-sm md:text-xl font-semibold">Resumen de Compra</h2>
+        {/* Detalles del resumen */}
+        <QuotePage />
+
+        {/* Botón para continuar con la compra */}
+        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          Continuar con la Compra
+        </button>
       </div>
-    </section>
+    </section >
   )
 }
 

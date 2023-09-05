@@ -15,7 +15,7 @@ const CustomFooter = () => {
                 <Image
                   src={siteConfig.images.logo}
                   alt="CacheShoop Logo"
-                  className="mr-3 h-8"
+                  className="max-w-xs h-auto mr-3"
                   width={44}
                   height={38}
                   quality="100"
