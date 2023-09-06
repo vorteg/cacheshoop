@@ -1,9 +1,21 @@
 
 import QuotePage from '@/components/QuotePage'
 import UlCartProdocts from '@/components/UlCartProdocts'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { redirect } from 'next/navigation'
+import { cookies } from 'next/headers'
 
 
-function page() {
+async function page() {
+
+  const supabase = createServerComponentClient( { cookies } )
+  const { data: { session } } = await supabase.auth.getSession()
+
+  if ( session === null ) {
+    redirect( '/login' )
+  }
+
+
   return (
     <section className='mt-4 p-2 grid gap-5 content-center justify-center grid-cols-1 md:mt-16 md:grid-cols-[60%,auto] lg:grid-cols-[45%,auto] xl:grid-cols-[35%,auto] 2xl:grid-cols-[25%,auto]'>
       <div className='min-w-min max-w-2xl bg-slate-500 w-full rounded-lg  md:grid md:col-span-1'>
