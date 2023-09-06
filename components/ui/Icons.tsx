@@ -5,6 +5,8 @@ import {
   ShoppingCart,
   X,
   Home,
+  Gamepad2,
+  User,
   type Icon as LucideIcon,
 } from "lucide-react"
 
@@ -18,4 +20,6 @@ export const Icons = {
   instagram: Instagram,
   close: X,
   home: Home,
+  games: Gamepad2,
+  user: User
 }

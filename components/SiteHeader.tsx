@@ -19,7 +19,6 @@ export default async function SiteHeader() {
           <nav className="flex items-center space-x-1">
             <Link
               href={siteConfig.links.car}
-              rel="noreferrer"
             >
               <div
                 className={buttonVariants( {

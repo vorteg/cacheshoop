@@ -13,6 +13,10 @@ export const siteConfig = {
       title: "Productos",
       href: "/products",
     },
+    {
+      title: "Servicios",
+      href: "/services",
+    },
   ],
   links: {
     instagram: "https://www.instagram.com/cacheshoop",
