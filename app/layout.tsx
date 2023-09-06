@@ -47,17 +47,17 @@ export default function RootLayout( { children }: RootLayoutProps ) {
 
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 
-            <div className="grid grid-cols-1 md:grid-rows-[3%,auto,1%] min-h-screen">
-              <div className='md:row-span-1'>
+            <div className="grid grid-rows-[.5%,auto,3%] md:grid-rows-[3%,auto,1%] min-h-screen">
+              <div className='row-span-1'>
                 <FreeShipping />
                 {/* @ts-expect-error Async Server Component */}
                 <SiteHeader />
               </div>
-              <div className='max-h-full md:row-span-1'>
+              <div className='max-h-full row-span-1 '>
                 {children}
               </div>
 
-              <div className='md:row-span-1'>
+              <div className='row-span-1'>
                 <CustomFooter />
                 <MobileMenu />
               </div>
