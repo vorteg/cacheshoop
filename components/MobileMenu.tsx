@@ -50,16 +50,8 @@ function MobileMenu() {
                         </Link>
 
                     </div>
-                    <div
-                        className={buttonVariants( {
-                            size: "sm",
-                            variant: "ghost",
-                        } )}
-                    >
-                        <Link href='/'>
-                            <Icons.home />
-                        </Link>
-                    </div>
+                    <ThemeToggle />
+
                     <GhostButton >
                         <Link
                             href={items[ 2 ].href}
@@ -118,7 +110,17 @@ function MobileMenu() {
                     />
                 </Button>
                 <div className={Toggle ? 'hidden' : 'show'}>
-                    <ThemeToggle />
+                    <div
+                        className={buttonVariants( {
+                            size: "sm",
+                            variant: "ghost",
+                        } )}
+                    >
+                        <Link href='/'>
+                            <Icons.home />
+                        </Link>
+                    </div>
+
                 </div>
             </div>
         </div>
