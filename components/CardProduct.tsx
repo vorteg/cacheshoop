@@ -11,7 +11,7 @@ interface CardProductProps {
 
 const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
   return (
-    <article key={key} className="group relative">
+    <article key={key} className="group relative  rounded-sm border-2 dark:border-white">
       <Image
         src={product.image}
         alt={product.title}
@@ -20,7 +20,7 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
         height={100}
         sizes='(max-width: 768px) 120px, 120px, (max-width: 1024px) 150px, 150px'
       />
-      <div className='mt-4 flex justify-between'>
+      <div className='mt-4 flex flex-col justify-between'>
         <div >
           <h3 className="text-sm ">
             <Link href={"/products/1"}>
@@ -32,7 +32,7 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
 
           </h3>
         </div>
-        <p className="text-sm font-medium ">${product.price}</p>
+        <p className=" text-right text-sm font-medium ">${product.price}</p>
       </div>
       <AddingtoCart product={{
         id: product.id,
