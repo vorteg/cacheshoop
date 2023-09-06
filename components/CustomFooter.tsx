@@ -6,7 +6,7 @@ import React from 'react'
 const CustomFooter = () => {
   return (
     <>
-      <footer className="bg-gray-100 dark:bg-gray-900 hidden md:block absolute bottom-0 w-full">
+      <footer className="bg-gray-100 dark:bg-gray-900 hidden md:grid md:row-span-3 w-full">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
@@ -15,7 +15,7 @@ const CustomFooter = () => {
                 <Image
                   src={siteConfig.images.logo}
                   alt="CacheShoop Logo"
-                  className="mr-3 h-8"
+                  className="max-w-xs h-auto mr-3"
                   width={44}
                   height={38}
                   quality="100"

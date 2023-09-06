@@ -1,6 +1,6 @@
 export type Game = {
     id: number
-    url: string
-    rating: number
-    title: string
+    background_image: string
+    metacritic: number
+    name: string
 }

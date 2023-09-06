@@ -1,38 +1,50 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
-import { Product } from '@/types/product'
+import { FProduct } from '@/types/fproduct'
+import AddingtoCart from './AddingtoCart';
 
 interface CardProductProps {
-  product: Product;
+  product: FProduct;
   key: number;
 }
 
 const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
   return (
-    <div key={key} className="bg-slate-300 rounded-lg shadow-md overflow-hidden">
-      <Link href="#">
-        <div className="flex">
-          <div className="flex-shrink-0">
-            <Image
-              src={product.url_img}
-              alt={product.name}
-              className="mr-3 h-15"
-              width={384}
-              height={84}
-              quality="100"
-            />
-          </div>
-          <div className="flex-grow p-4">
-            <h2 className="text-xl text-gray-700 font-semibold mb-2">{product.name}</h2>
-            <p className="text-gray-600 mb-4">
-              {product.description}
-            </p>
-            <p className="text-gray-600">Precio: <span className="text-green-500">${product.price}</span></p>
-          </div>
+    <article key={key} className="group relative">
+      <Image
+        src={product.image}
+        alt={product.title}
+        className='aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80'
+        width={100}
+        height={100}
+        sizes='(max-width: 768px) 120px, 120px, (max-width: 1024px) 150px, 150px'
+      />
+      <div className='mt-4 flex justify-between'>
+        <div >
+          <h3 className="text-sm ">
+            <Link href={"/products/1"}>
+              <span aria-hidden="true" className="absolute"  ></span>
+              {product.title}
+            </Link>
+
+
+
+          </h3>
         </div>
-      </Link>
-    </div>
+        <p className="text-sm font-medium ">${product.price}</p>
+      </div>
+      <AddingtoCart product={{
+        id: product.id,
+        name: product.title,
+        url: product.image,
+        quantity: 1,
+        price: product.price
+      }} />
+
+
+
+    </article>
   )
 }
 

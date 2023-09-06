@@ -47,15 +47,20 @@ export default function RootLayout( { children }: RootLayoutProps ) {
 
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 
-            <div className="relative flex flex-col min-w-[320px] min-h-screen md:min-w-[640px] md:min-h-screen lg:min-w-[1024px] lg:min-h-screen xl:min-w-[1280px] xl:min-h-screen">
-              <FreeShipping />
-              {/* @ts-expect-error Async Server Component */}
-              <SiteHeader />
-              <div className='pt-0 p-5 md:pb-64 md:pt-16 w-full flex-grow-1 flex-shrink-0 flex flex-col items-center justify-center'>
+            <div className="grid grid-cols-1 md:grid-rows-[3%,auto,1%] min-h-screen">
+              <div className='md:row-span-1'>
+                <FreeShipping />
+                {/* @ts-expect-error Async Server Component */}
+                <SiteHeader />
+              </div>
+              <div className='max-h-full md:row-span-1'>
                 {children}
               </div>
-              <CustomFooter />
-              <MobileMenu />
+
+              <div className='md:row-span-1'>
+                <CustomFooter />
+                <MobileMenu />
+              </div>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

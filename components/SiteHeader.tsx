@@ -5,6 +5,7 @@ import { buttonVariants, Icons } from "@/components/ui"
 import MainNav from "@/components/MainNav"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { AuthButtonServer } from '@/components/AuthButtonServer'
+import CartStatus from './CartStatus'
 
 
 
@@ -17,8 +18,7 @@ export default async function SiteHeader() {
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
             <Link
-              href={siteConfig.links.instagram}
-              target="_blank"
+              href={siteConfig.links.car}
               rel="noreferrer"
             >
               <div
@@ -27,7 +27,7 @@ export default async function SiteHeader() {
                   variant: "ghost",
                 } )}
               >
-                <Icons.car />
+                <CartStatus />
               </div>
 
             </Link>
