@@ -7,8 +7,8 @@ export async function AuthButtonServer() {
   const supabase = createServerComponentClient( { cookies } )
 
   const { data: session } = await supabase.auth.getSession()
-
-  return <AuthButton session={session.session} />
+  const URL = process.env.URL_CALLBACK
+  return <AuthButton session={session.session} url={URL} />
 
 }
 

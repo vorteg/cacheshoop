@@ -5,7 +5,9 @@ async function page() {
   return (
     <section className='grid place-content-center min-h-screen'>
       <h1 className='text-xl font-bold mb-4'>Perfil del Usuario</h1>
-      {auth}
+      <div className='grid place-content-center'>
+        {auth}
+      </div>
     </section>
   )
 }
