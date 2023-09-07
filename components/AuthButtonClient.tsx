@@ -4,15 +4,16 @@ import { type Session, createClientComponentClient } from '@supabase/auth-helper
 import { useRouter } from 'next/navigation'
 import { Button } from './ui'
 
-export function AuthButton( { session }: { session: Session | null } ) {
+export function AuthButton( { session, url }: { session: Session | null, url: string | undefined } ) {
   const supabase = createClientComponentClient()
   const router = useRouter()
 
   const handleSignIn = async () => {
+    console.log( url )
     await supabase.auth.signInWithOAuth( {
       provider: 'google',
       options: {
-        redirectTo: `${process.env.URL_CALLBACK}/auth/callback`
+        redirectTo: `${url}/auth/callback`
       }
     } )
   }
