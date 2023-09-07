@@ -2,6 +2,7 @@
 
 import { type Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation'
+import { Button } from './ui'
 
 export function AuthButton( { session }: { session: Session | null } ) {
   const supabase = createClientComponentClient()
@@ -11,7 +12,7 @@ export function AuthButton( { session }: { session: Session | null } ) {
     await supabase.auth.signInWithOAuth( {
       provider: 'google',
       options: {
-        redirectTo: 'http://localhost:3000/auth/callback'
+        redirectTo: `${process.env.URL_CALLBACK}/auth/callback`
       }
     } )
   }
@@ -26,7 +27,7 @@ export function AuthButton( { session }: { session: Session | null } ) {
 
   return <header>
     {
-      session === null ? ( <button onClick={handleSignIn}>Sign in</button> ) : <button onClick={handleSignOut}>Sign out</button>
+      session === null ? ( <Button onClick={handleSignIn}>Sign in</Button> ) : <Button onClick={handleSignOut}>Sign out</Button>
     }
 
 
