@@ -18,6 +18,20 @@ export const siteConfig = {
       href: "/services",
     },
   ],
+  slides: [
+    {
+      url:"https://res.cloudinary.com/dehsikb6h/image/upload/v1680214325/cachshoop/heros/store_gw3aew.webp"
+    },
+    {
+      url:"https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?w=2000"
+    },
+    {
+      url:"https://lumiere-a.akamaihd.net/v1/images/sa_pixar_virtualbg_coco_16x9_9ccd7110.jpeg"
+    },
+    {
+      url:"https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_640.jpg"
+    },
+  ],
   links: {
     instagram: "https://www.instagram.com/cacheshoop",
     car:"/carproducts"

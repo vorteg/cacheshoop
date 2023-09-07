@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero'
+import Hero from '@/components/hero/Hero'
 import BannerBanco from '@/components/BannerBanco'
 import RecomendedProducts from '@/components/recommendedproducts/RecomendedProducts'
 import CardTemplate from '@/components/cardtemplate/CardTemplate'
