@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 
 import './styles.css';
 
+
 const Hero = () => {
 
     return (
