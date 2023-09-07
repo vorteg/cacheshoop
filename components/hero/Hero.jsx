@@ -16,7 +16,7 @@ const Hero = () => {
         <>
             <section className="w-full container grid items-center gap-6 pb-8 pt-6">
                 <h1 className=" text-3xl font-semibold">{siteConfig.description}</h1>
-                <div className="flex flex-col items-center gap-2">
+                <div className="relative">
                     {/* <Image
                         src={siteConfig.slides[0].url}
                         width={1024}
