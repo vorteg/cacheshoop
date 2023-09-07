@@ -13,7 +13,7 @@ export function AuthButton( { session, url }: { session: Session | null, url: st
     await supabase.auth.signInWithOAuth( {
       provider: 'google',
       options: {
-        redirectTo: `${url}/auth/callback`
+        redirectTo: `${url}/api/auth/callback`
       }
     } )
   }
