@@ -4,9 +4,12 @@ import UlCartProdocts from '@/components/UlCartProdocts'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
+import Link from 'next/link'
+import { Button } from "@/components/ui"
 
 
 async function page() {
+
 
   const supabase = createServerComponentClient( { cookies } )
   const { data: { session } } = await supabase.auth.getSession()
@@ -32,9 +35,8 @@ async function page() {
         <QuotePage />
 
         {/* Botón para continuar con la compra */}
-        <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-          Continuar con la Compra
-        </button>
+        <Link href={"/payment"}><Button className='hover:shadow-lg'>Continuar la compra</Button></Link>
+
       </div>
     </section >
   )
