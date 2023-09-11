@@ -29,7 +29,7 @@ function Payment( { PKey }: { PKey: string } ) {
 
     handleCartChange();
 
-  }, [ cart ] );
+  }, [] );
 
   return (
     <div>
