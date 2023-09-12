@@ -1,7 +1,6 @@
 
 
-
-function page() {
+async function page() {
 
     return (
         <>
@@ -10,7 +9,7 @@ function page() {
 
 
                 <h1 className="text-[2rem] font-semibold">VideoGames</h1>
-
+                {/* <p>{JSON.stringify( res )}</p> */}
 
             </section>
         </>

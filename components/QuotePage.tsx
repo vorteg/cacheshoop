@@ -11,7 +11,7 @@ function QuotePage() {
 
   // Función para calcular el valor total de productos en el carrito
   const calculateTotalCost = () => {
-    return cart.reduce( ( total: number, product: CProduct ) => total + product.price * product.quantity, 0 );
+    return cart.reduce( ( total: number, product: CProduct ) => total + product.unit_price * product.quantity, 0 );
   };
 
   const [ totalProducts, setTotalProducts ] = useState( 0 );
