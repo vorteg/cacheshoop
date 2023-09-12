@@ -1,15 +1,28 @@
 import {startMercadoPago } from '@/app/api/helpers/config-ml'
+import { dto_save } from '@/supabase/client_payment'
+import { dto_save_wh } from '@/supabase/client_webhook'
 
-export const receiveWebhook = async (payment:any) => {
+export const receiveWebhook = async (payment:any,id:string| null,topic:string|null) => {
   try {
     const mp = startMercadoPago()
+    dto_save_wh({param_id:id,param_topic:topic,data_id:payment['data.id'],type:payment.type})
     if(payment.type === 'payment'){
       const payId: number = parseInt(payment["data.id"], 10)
       console.log("desde dentro de webhook")
       console.log(payment)
-      console.log(payId)
       const data = await mp?.payment.findById(payId)
-      console.log(data)
+      const dto_payment_data = {
+        id:payId,
+        status:data?.response.status,
+        email:data?.response.payer.email,
+        name:data?.response.payer.name,
+        external_reference:data?.response.external_reference,
+        transaction_amount:data?.response.transaction_amount,
+        body:data?.body
+     }
+     dto_save(dto_payment_data)
+
+
     }
     return 204
     

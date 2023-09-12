@@ -8,8 +8,9 @@ export async function POST (request:Request) {
   
   const body = await request.json()
   const requestUrl = new URL(request.url)
-  console.log(requestUrl.searchParams.toString())
-  const code = await receiveWebhook(body)
+  const id = requestUrl.searchParams.get('id')
+  const topic = requestUrl.searchParams.get('topic')
+  const code = await receiveWebhook(body, id, topic)
 
   console.log("desde webhook")  
   if ( code === 404)
