@@ -6,6 +6,8 @@ import { User } from './types';
 import { dto_save } from "@/supabase/client_preferences"
 import { DateTime } from 'luxon';
 
+import { dto_save_uo } from '@/supabase/client_user_order';
+
 function createExternalReference(){
  
   const referenceNumber = Date.now() + Math.floor(Math.random() * 1000);
@@ -86,6 +88,10 @@ export async function createOrder(cart:CProduct[],user_id:string){
   // console.log(result)
   if (result?.body.id){
      dto_save(user_id,external_reference,signature,result.body.id)
+     const subtotal = cart.reduce(( total: number, product: CProduct ) => total + product.unit_price * product.quantity, 0 )
+     const shippingCost = 10
+     const total = ( subtotal + shippingCost ).toFixed( 2 ) 
+     dto_save_uo({reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
      return result.body.id
  }else{
   return "no se pudo"
