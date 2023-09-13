@@ -73,11 +73,11 @@ export async function createOrder(cart:CProduct[],user_id:string){
             street_number: 123,
             zip_code: "5700"
         }},
-    notification_url:`${process.env.URL_CALLBACK2}/api/payment/mp/webhook`,
+    notification_url:`${process.env.URL_CALLBACK}/api/payment/mp/webhook`,
     back_urls:{
-      success: `${process.env.URL_CALLBACK2}/api/payment/mp/success`,
-      failure:`${process.env.URL_CALLBACK2}/api/payment/mp/failure`,
-      pending:`${process.env.URL_CALLBACK2}/api/payment/mp/pending`
+      success: `${process.env.URL_CALLBACK}/api/payment/mp/success`,
+      failure:`${process.env.URL_CALLBACK}/api/payment/mp/failure`,
+      pending:`${process.env.URL_CALLBACK}/api/payment/mp/pending`
     },
      auto_return: "approved",
      external_reference: external_reference,

@@ -26,6 +26,6 @@ export async function GET (request:NextRequest) {
   console.log("desde failure")
   console.log(data)
 
-  return NextResponse.redirect(`${process.env.URL_CALLBACK2}`)
+  return NextResponse.redirect(`${process.env.URL_CALLBACK}`)
   
 }
