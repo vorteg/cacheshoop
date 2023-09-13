@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { dto_save } from "@/supabase/client_payment_status"
+import { dto_update_uo } from '@/supabase/client_user_order';
 
 //esto es una opcion de nextjs , para evitar que cachee de forma estatica
 // la ruta, y siempre se ejecute en el servidor
@@ -20,12 +21,13 @@ export async function GET (request:NextRequest) {
   merchant_account_id:requestUrl.searchParams.get('merchant_account_id')
 }
   dto_save(data)
+  dto_update_uo(requestUrl.searchParams.get('external_reference'),"fail")
     
   
   // la plataforma web
   console.log("desde failure")
   console.log(data)
 
-  return NextResponse.redirect(`${process.env.URL_CALLBACK}`)
+  return NextResponse.redirect(`${process.env.URL_CALLBACK}/payment/failure`)
   
 }
