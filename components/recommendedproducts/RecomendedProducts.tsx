@@ -28,7 +28,7 @@ const RecomendedProducts = async () => {
 
 
                     <div className="col-span-4 md:col-span-2 lg:col-span-1" key={game.id}>
-                        <Link key={game.id} href={`/videogames/${1}`} >
+                        <Link key={game.id} href={`/videogames/${game.id}`} >
                             <h1>{game.name}</h1>
                             <p>{game.metacritic}</p>
                             <div className="relative aspect-video">
