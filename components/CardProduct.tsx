@@ -35,11 +35,12 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
         <p className=" text-right text-sm font-medium ">${product.price}</p>
       </div>
       <AddingtoCart product={{
-        id: product.id,
-        name: product.title,
-        url: product.image,
+        id: product.id.toString(),
+        title: product.title,
+        picture_url: product.image,
         quantity: 1,
-        price: product.price
+        unit_price: product.price,
+        currency_id: "MXN"
       }} />
 
 

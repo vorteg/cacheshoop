@@ -21,13 +21,13 @@ function LiProduct( { product, index }: { product: CProduct, index: number } ) {
   return (
     <div className="bg-white dark:text-black rounded-md p-2 flex items-center w-full">
       <img
-        src={product.url}
+        src={product.picture_url}
         alt="Nombre del Producto"
         className="w-16 h-16 object-cover "
       />
       <div className=' p-4 m-2 flex flex-col flex-wrap'>
         {/* Nombre del producto */}
-        <p className="md:text-lg font-semibold">{product.name}</p>
+        <p className="md:text-lg font-semibold">{product.title}</p>
         {/* Número de unidades con controles */}
         <div className="flex gap-1 items-center mt-2">
           <p>Unidades:</p>
@@ -42,7 +42,7 @@ function LiProduct( { product, index }: { product: CProduct, index: number } ) {
           </div>
 
         </div>
-        <p className=" p-4 m-2 text-lg font-semibold">${product.quantity * product.price}MXN</p>
+        <p className=" p-4 m-2 text-lg font-semibold">${product.quantity * product.unit_price}MXN</p>
       </div>
     </div>
   )

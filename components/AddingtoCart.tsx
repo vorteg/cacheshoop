@@ -16,7 +16,7 @@ function AddingtoCart( { product }: { product: CProduct } ) {
     if ( existingProduct?.quantity ) {
       const newQuantity = existingProduct.quantity + 1;
       // Llamar a la función para actualizar la cantidad del producto en el carrito
-      updateProductQuantity( existingProduct.id - 1, newQuantity );
+      updateProductQuantity( parseInt( existingProduct.id ) - 1, newQuantity );
     } else {
       // Si el producto no está en el carrito, agrégalo
       addToCart( product );
