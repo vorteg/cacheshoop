@@ -25,6 +25,6 @@ export async function GET (request:NextRequest) {
   // la plataforma web
   console.log("desde success")
 
-  return NextResponse.json({data:"todo chidop!!", status:200})
+  return NextResponse.redirect(`${process.env.URL_CALLBACK}/payment/success`)
   
 }
