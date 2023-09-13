@@ -3,17 +3,16 @@ import axios from 'axios';
 
 
 
-async function loadgame( id: number ) {
-  const data = await axios.get( `/api/game?id=${id}` )
 
-  return data.data
-
+// Función para cargar el juego
+async function loadGame( id: number ) {
+  const response = await axios.get( `${process.env.URL_CALLBACK}/api/game?id=${id}` );
+  return response.data;
 }
-
 
 async function page( { params }: any ) {
   try {
-    const game = await loadgame( params.gameId )
+    const game = await loadGame( params.gameId )
 
 
     return (

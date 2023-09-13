@@ -16,7 +16,7 @@ export default async function IndexPage() {
       {/* @ts-expect-error Async Server Component */}
       <RecomendedProducts />
       {/* @ts-expect-error Async Server Component */}
-      <CardTemplate header="Consigue los mejores precios" num={8} />
+      <CardTemplate header="Consigue los mejores precios" num={6} />
       {/* @ts-expect-error Async Server Component */}
       <CardTemplate header="Busca por Categorias" num={7} />
       <BannerHowTo />
