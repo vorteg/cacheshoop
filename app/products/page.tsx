@@ -1,22 +1,19 @@
 
-import React from 'react'
 import Link from 'next/link';
 import CardProduct from "@/components/CardProduct";
 import dto from "@/supabase/client_product"
-import { fetchfproductsAction, readfproductsAction } from '../(store)/storeFProducts/actions/fproductAction';
+import { readfproductsAction } from '../(store)/storeFProducts/actions/fproductAction';
 import FilterGlob from '@/components/FilterGlob';
 import FilterProduct from '@/components/FilterProduct';
-import SideCart from '@/components/SideCart';
 
 //ToDOAgregar map para recorrer los productos
 export const dynamic = 'force-dynamic'
 
 async function page() {
-  // const products = await dto()
-  await fetchfproductsAction()
+  // const products = await dto()  
   const products = await readfproductsAction()
   return (
-    <section className='grid grid-cols-1 md:grid-cols-[20%,auto] md:gap-5'>
+    <section className='mt-16 grid grid-cols-1 md:grid-cols-[20%,auto] md:gap-5'>
       <FilterGlob />
       {/* <SideCart /> */}
       <div className='hidden md:grid md:col-span-1'>
