@@ -38,6 +38,7 @@
     "swiper": "^10.2.0",
     "tailwind-merge": "^1.12.0",
     "tailwindcss-animate": "^1.0.5",
+    "tw-elements": "^1.0.0",
     "uuid": "^9.0.0",
     "zustand": "^4.4.1"
   },

@@ -14,9 +14,9 @@ const Hero = () => {
 
     return (
         <>
-            <section className="w-full container grid items-center gap-6 pb-8 pt-6">
-                <h1 className=" text-3xl font-semibold">{siteConfig.description}</h1>
-                <div className="relative">
+            <section className="container max-w-xs grid items-center gap-6 pb-8 pt-6">
+                <h1 className=" text-3xl font-semibold">{ siteConfig.description }</h1>
+                <div className="max-w-[300px]">
                     {/* <Image
                         src={siteConfig.slides[0].url}
                         width={1024}
@@ -24,48 +24,48 @@ const Hero = () => {
                         alt="cover"
                         priority={true}
                     /> */}
-                   <Swiper
-                        spaceBetween={10}
-                        centeredSlides={true}
-                        autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                        }}
-                        pagination={{
-                        clickable: true,
-                        }}
-                        navigation={true}
-                        modules={[Autoplay, Pagination, Navigation]}
+                    <Swiper
+                        spaceBetween={ 10 }
+                        centeredSlides={ true }
+                        autoplay={ {
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        } }
+                        pagination={ {
+                            clickable: true,
+                        } }
+                        navigation={ true }
+                        modules={ [Autoplay, Pagination, Navigation] }
                         className="mySwiper"
                     >
                         <SwiperSlide><Image
-                        src={siteConfig.slides[0].url}
-                        width={1024}
-                        height={384}
-                        alt="cover"
-                        priority={true}
-                    /></SwiperSlide>
+                            src={ siteConfig.slides[0].url }
+                            width={ 1024 }
+                            height={ 384 }
+                            alt="cover"
+                            priority={ true }
+                        /></SwiperSlide>
                         <SwiperSlide><Image
-                        src={siteConfig.slides[1].url}
-                        width={1024}
-                        height={384}
-                        alt="cover"
-                        priority={true}
-                    /></SwiperSlide>
+                            src={ siteConfig.slides[1].url }
+                            width={ 1024 }
+                            height={ 384 }
+                            alt="cover"
+                            priority={ true }
+                        /></SwiperSlide>
                         <SwiperSlide><Image
-                        src={siteConfig.slides[2].url}
-                        width={1024}
-                        height={384}
-                        alt="cover"
-                        priority={true}
-                    /></SwiperSlide>
+                            src={ siteConfig.slides[2].url }
+                            width={ 1024 }
+                            height={ 384 }
+                            alt="cover"
+                            priority={ true }
+                        /></SwiperSlide>
                         <SwiperSlide><Image
-                        src={siteConfig.slides[3].url}
-                        width={1024}
-                        height={384}
-                        alt="cover"
-                        priority={true}
-                    /></SwiperSlide>
+                            src={ siteConfig.slides[3].url }
+                            width={ 1024 }
+                            height={ 384 }
+                            alt="cover"
+                            priority={ true }
+                        /></SwiperSlide>
                     </Swiper>
                 </div>
             </section>

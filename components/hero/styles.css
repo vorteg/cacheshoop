@@ -22,7 +22,7 @@
   }
 
 /* For small devices */
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 320px) {
   .swiper {
     width: 15rem;
     height: 8rem;
