@@ -31,6 +31,18 @@ export default async function SiteHeader() {
 
             </Link>
             <Link
+              href={'/user'}
+            >
+              <div className={buttonVariants( {
+                size: "sm",
+                variant: "ghost",
+              } )} >
+                <Icons.user />
+              </div>
+
+
+            </Link>
+            <Link
               href={siteConfig.links.instagram}
               target="_blank"
               rel="noreferrer"
