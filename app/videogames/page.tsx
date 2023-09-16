@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import Games from '@/components/Games';
+import { buttonVariants } from '@/components/ui';
 
 
 function page() {
@@ -35,22 +36,41 @@ function page() {
 
     return (
         <>
-            <section className="grid items-center gap-6 pb-8 pt-6 md:py-10">
-
-                <h1 className="text-2xl font-semibold ">VideoGames</h1>
-                <input
-                    type="text"
-                    placeholder="Search for games"
-                    value={searchTerm}
-                    onChange={( e ) => setSearchTerm( e.target.value )}
-                    className="border p-2 rounded-md "
-                />
-                <button onClick={handleSearch}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md"
-                >Search</button>
-                <Games games={games} />
-                <button className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4" onClick={handleNext}>Next Page</button>
-
+            <section className="container mx-auto mt-16 p-6 md:p-10">
+                <div className="bg-stone-500 shadow-md rounded-lg p-6 md:p-8">
+                    <h1 className="text-2xl font-semibold mb-4">VideoGames</h1>
+                    <div className="flex flex-col md:flex-row md:space-x-4 items-center mb-4">
+                        <p className='text-white'>
+                            Busca informacion sobre el videojuego que deseas.
+                        </p>
+                        <input
+                            type="text"
+                            placeholder="Ejemplo: Crash Bandicot"
+                            value={searchTerm}
+                            onChange={( e ) => setSearchTerm( e.target.value )}
+                            className="m-2 border p-2 rounded-md w-full md:w-1/2"
+                        />
+                        <button
+                            onClick={handleSearch}
+                            className={buttonVariants( {
+                                size: "sm",
+                                variant: "default",
+                            } )}
+                        >
+                            Buscar
+                        </button>
+                    </div>
+                    <Games games={games} />
+                    <button
+                        className={buttonVariants( {
+                            size: "sm",
+                            variant: "default",
+                        } )}
+                        onClick={handleNext}
+                    >
+                        Siguiente Pagina
+                    </button>
+                </div>
             </section>
         </>
     )

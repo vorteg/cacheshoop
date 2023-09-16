@@ -29,7 +29,7 @@ type GameCardProps = {
 
 const GameCard: React.FC<GameCardProps> = ( { game } ) => {
   return (
-    <div className="bg-white p-4 rounded-md shadow-md">
+    <div className="bg-stone-800 text-white p-4 rounded-md shadow-md">
       <img
         src={game.background_image}
         alt={game.name}
@@ -37,11 +37,14 @@ const GameCard: React.FC<GameCardProps> = ( { game } ) => {
       />
       <h2 className="text-lg font-semibold mb-2">{game.name}</h2>
       <div dangerouslySetInnerHTML={{ __html: game.description }} />
-      <p className="text-xs text-gray-500">Released: {game.released}</p>
-      <p className="text-xs text-gray-500">Metacritic: {game.metacritic}</p>
-      <p className="text-xs text-gray-500">Platform: {game.platforms.map( ( platform ) => platform.platform.name ).join( ', ' )}</p>
-      <p className="text-xs text-gray-500">Store: {game.stores.map( ( store ) => store.store.name ).join( ',' )}</p>
-      <p className="text-xs text-gray-500">Developer: {game.developers.map( ( dev ) => dev.name ).join( ', ' )}</p>
+      <div className='bg-stone-500 rounded-lg p-2 text-sm text-white'>
+        <p >Released: {game.released}</p>
+        <p >Metacritic: {game.metacritic}</p>
+        <p >Platform: {game.platforms.map( ( platform ) => platform.platform.name ).join( ', ' )}</p>
+        <p >Store: {game.stores.map( ( store ) => store.store.name ).join( ',' )}</p>
+        <p >Developer: {game.developers.map( ( dev ) => dev.name ).join( ', ' )}</p>
+      </div>
+
     </div>
   );
 };
