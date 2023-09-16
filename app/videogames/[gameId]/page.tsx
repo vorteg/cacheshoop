@@ -16,7 +16,7 @@ async function page( { params }: any ) {
 
 
     return (
-      <section className="grid items-center gap-6 pb-8 pt-6 md:py-14">
+      <section className=" container mb-16 max-w-7xl pb-8 pt-6 md:py-14 md:px-48 ">
         <div>
           <h1 className="text-2xl font-semibold mb-4">{game.name}</h1>
           <GameCard game={game} />

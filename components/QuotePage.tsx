@@ -30,7 +30,7 @@ function QuotePage() {
 
 
   return (
-    <div className='bg-slate-500 rounded-md text-xs grid grid-cols-2 p-2'>
+    <div className='bg-stone-700 rounded-md text-xs grid grid-cols-2 p-2'>
       <div className='col-span-1 flex flex-col'>
         <p>Productos:</p>
         <p>SubTotal:</p>

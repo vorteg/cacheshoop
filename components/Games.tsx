@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 const Games = ( { games }: { games: Game[] } ) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="mb-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {games.map( ( game ) => (
-        <div className="border border-white dark:border-gray-500 p-4 rounded-md shadow-md" key={game.id}>
+        <div className="bg-stone-800 border text-white border-white dark:border-gray-500 p-4 rounded-md shadow-md" key={game.id}>
           <Link href={`/videogames/${game.id}`}>
             <img
               src={game.background_image}

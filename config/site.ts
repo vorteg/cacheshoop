@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   name: "Cache Shoop",
   description:
-    "Bienvenidos, a las Delicias del mundo Gaming!",
+    "Bienvenidos al mundo Gaming y mucho más!",
   mainNav: [
     {
       title: "Videojuegos",
