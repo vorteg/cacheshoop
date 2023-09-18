@@ -7,25 +7,16 @@ import {
   CardTitle
 } from "@/components/ui";
 import Image from 'next/image';
-import Loading from '@/components/cardtemplate/Loading';
-import { readGamesAction, readLoadingGameAction } from '@/app/(store)/storeGames/actions/gameActions';
 
 interface Props {
   header: string;
-  num: number;
+  cardtitle: string;
+  description: string;
+  bgImage: string
 }
 
-const CardTemplate = async ( { header, num }: Props ) => {
-  const games = await readGamesAction()
-  const isLoading = await readLoadingGameAction()
+const CardTemplate = ( { header, cardtitle, description, bgImage }: Props ) => {
 
-  if ( isLoading ) {
-    return <Loading />;
-  }
-
-  if ( games.length === 0 ) {
-    return <p>No hay datos disponibles.</p>;
-  }
 
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
@@ -34,13 +25,13 @@ const CardTemplate = async ( { header, num }: Props ) => {
       </div>
       <Card className="w-full md:w-[35rem]">
         <CardHeader>
-          <CardTitle>Videojuegos</CardTitle>
-          <CardDescription>desde $35</CardDescription>
+          <CardTitle>{cardtitle}</CardTitle>
+          <CardDescription>{description}</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="relative aspect-video">
+          <div className="relative aspect-square">
             <Image
-              src={games[ num ].background_image}
+              src={bgImage}
               fill
               alt="Mejores precios"
               className="rounded-md object-cover"
