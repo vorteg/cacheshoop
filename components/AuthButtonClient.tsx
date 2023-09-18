@@ -28,7 +28,7 @@ export function AuthButton( { session, url }: { session: Session | null, url: st
 
   return <header>
     {
-      session === null ? ( <Button onClick={handleSignIn}>Sign in</Button> ) : <Button onClick={handleSignOut}>Sign out</Button>
+      session === null ? ( <Button onClick={handleSignIn}>Iniciar Sesión</Button> ) : <Button onClick={handleSignOut}>Cerrar Sesión</Button>
     }
 
 

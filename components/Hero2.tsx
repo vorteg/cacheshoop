@@ -6,10 +6,8 @@ import React, { useEffect, useState } from 'react';
 
 const images = [
   siteConfig.images.hero,
-  "https://mdbcdn.b-cdn.net/img/new/slides/042.webp",
-  "https://mdbcdn.b-cdn.net/img/new/slides/043.webp",
-  "https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg",
-  "https://tecdn.b-cdn.net/img/Photos/Slides/img%20(22).jpg"
+  "https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1695055792/cachshoop/heros/Corte_1_ceij7s.webp",
+  "https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1695050396/cachshoop/heros/Gran_Promo_qwwmpc.webp",
 ];
 
 const Hero2: React.FC = () => {
@@ -18,7 +16,7 @@ const Hero2: React.FC = () => {
   useEffect( () => {
     const interval = setInterval( () => {
       setActiveIndex( ( prevIndex ) => ( prevIndex + 1 ) % images.length );
-    }, 3000 );
+    }, 6000 );
 
     return () => clearInterval( interval );
   }, [] );
@@ -32,7 +30,7 @@ const Hero2: React.FC = () => {
   };
 
   return (
-    <section className="container max-w-[1320px] max-h-[580] grid items-center gap-6 pb-8 pt-6">
+    <section className="container max-w-[1320px] max-h-[580] grid items-center gap-6 pb-8 pt-6 md:mt-20">
       <h1 className=" text-3xl font-semibold">{siteConfig.description}</h1>
       <div className="relative">
         <img

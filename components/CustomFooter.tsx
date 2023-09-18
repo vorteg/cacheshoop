@@ -43,7 +43,7 @@ const CustomFooter = () => {
           </div>
           <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
           <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">© 2023 <Link href="/" className="hover:underline">CacheShop™</Link>. All Rights Reserved.
+            <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">© 2023 <Link href="https://pichonescorp.com" className="hover:underline">PichonesCorp™</Link>.Derechos reservados.
             </span>
             <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
               <Link href={siteConfig.links.instagram} className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
