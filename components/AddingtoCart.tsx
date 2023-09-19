@@ -6,7 +6,7 @@ import { Button } from './ui'
 import { addToCart, updateProductQuantity } from '@/app/(store)/Cart/actions/cartActions'
 import { CProduct } from '@/app/(store)/Cart/types';
 
-function AddingtoCart( { product }: { product: CProduct } ) {
+function AddingtoCart( { product, buttonProps }: { product: CProduct, buttonProps?: { name: string } } ) {
 
 
   const handleAddToCart = () => {
@@ -25,7 +25,7 @@ function AddingtoCart( { product }: { product: CProduct } ) {
   }
 
   return (
-    <Button onClick={handleAddToCart}>+</Button>
+    <Button className={`${buttonProps ? "w-full" : ""}`} onClick={handleAddToCart}>{buttonProps ? buttonProps.name : "+"}</Button>
   )
 }
 
