@@ -24,9 +24,9 @@ export default async function IndexPage() {
       <RecomendedVideogames />
       {/* @ts-expect-error Async Server Component */}
       <RecomendedProducts />
-      <CardTemplate header="Consigue los mejores precios" cardtitle='Video Juegos' description='desde $35 MXN' bgImage={siteConfig.images.product} />
+      <CardTemplate header="Consigue los mejores precios" cardtitle='Video Juegos' description='desde $35 MXN' bgImage={siteConfig.images.product} url={"/videogames"} />
 
-      <CardTemplate header="Servicios Online" cardtitle='Conoce nuestros servicios' description='Corte y grabado Laser, Programacion, Diseño Web' bgImage={siteConfig.images.service} />
+      <CardTemplate header="Servicios Online" cardtitle='Conoce nuestros servicios' description='Corte y grabado Laser, Programacion, Diseño Web' bgImage={siteConfig.images.service} url={"/services"} />
       <BannerHowTo />
       <FloatingButton />
     </>

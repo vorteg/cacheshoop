@@ -7,15 +7,17 @@ import {
   CardTitle
 } from "@/components/ui";
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Props {
   header: string;
   cardtitle: string;
   description: string;
-  bgImage: string
+  bgImage: string;
+  url: string;
 }
 
-const CardTemplate = ( { header, cardtitle, description, bgImage }: Props ) => {
+const CardTemplate = ( { header, cardtitle, description, bgImage, url }: Props ) => {
 
 
   return (
@@ -29,15 +31,18 @@ const CardTemplate = ( { header, cardtitle, description, bgImage }: Props ) => {
           <CardDescription>{description}</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="relative aspect-square">
-            <Image
-              src={bgImage}
-              fill
-              alt="Mejores precios"
-              className="rounded-md object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-          </div>
+          <Link href={url}>
+            <div className="relative aspect-square">
+              <Image
+                src={bgImage}
+                fill
+                alt="Mejores precios"
+                className="rounded-md object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+          </Link>
+
         </CardContent>
       </Card>
     </section>

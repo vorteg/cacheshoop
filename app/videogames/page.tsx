@@ -1,19 +1,26 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Games from '@/components/Games';
 import { buttonVariants } from '@/components/ui';
+import { useGameStore } from '../(store)/storeGames/slices/gameSlice';
+import { readGamesAction } from '../(store)/storeGames/actions/gameActions';
 
 
 function page() {
-    const [ games, setGames ] = useState( [] );
+    const [ gs, setGs ] = useState( [] );
+
+    useEffect( () => {
+
+        fetchGames()
+    }, [ gs ] )
     const [ page, setPage ] = useState( 1 );
     const [ searchTerm, setSearchTerm ] = useState( '' );
 
     const fetchGames = async () => {
         try {
             const response = await axios.get( `/api/games?page=${page}&searchTerm=${searchTerm}` );
-            setGames( response.data.results );
+            setGs( response.data.results );
         } catch ( error ) {
             console.error( error );
         }
@@ -25,13 +32,19 @@ function page() {
     };
 
     const handleNext = async () => {
-        setPage( page + 1 );
-        await fetchGames();
         window.scrollTo( {
             top: 0,
-            behavior: "smooth" // Esto proporciona un desplazamiento suave
+            behavior: "smooth"
         } );
-    }
+
+        setPage( prevPage => {
+            const nextPage = prevPage + 1;
+            console.log( nextPage ); // Esto mostrará el valor actualizado de page
+            return nextPage;
+        } );
+        await fetchGames();
+
+    };
 
 
     return (
@@ -60,7 +73,7 @@ function page() {
                             Buscar
                         </button>
                     </div>
-                    <Games games={games} />
+                    <Games games={gs} />
                     <button
                         className={buttonVariants( {
                             size: "sm",
