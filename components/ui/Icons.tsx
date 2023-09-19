@@ -7,6 +7,7 @@ import {
   Home,
   Gamepad2,
   User,
+  Search,
   type Icon as LucideIcon,
 } from "lucide-react"
 
@@ -21,5 +22,6 @@ export const Icons = {
   close: X,
   home: Home,
   games: Gamepad2,
-  user: User
+  user: User,
+  search: Search
 }

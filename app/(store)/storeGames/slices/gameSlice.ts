@@ -9,6 +9,4 @@ interface GameState {
 export const useGameStore = create<GameState>((set) => ({
   games: [],
   isLoading: false,
-  setLoading: (isLoading: boolean) => set({ isLoading }),
-  setGames: (games: Game[]) => set({ games }),
 }));

@@ -2,6 +2,7 @@
 import Image from 'next/image';
 
 import { FProduct } from '@/types/fproduct';
+import Link from 'next/link';
 
 
 // Datos de ejemplo de productos
@@ -35,22 +36,23 @@ const ProductCarousel = ( { products }: { products: FProduct[] } ) => {
           >
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
 
-              <div className="relative aspect-square h-64  ">
-                <Image
-                  src={product.image}
-                  fill
-                  className="rounded-md object-cover "
-                  alt={product.title}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              <Link href={`/products/${product.id}`} >
+                <div className="relative aspect-square h-64">
+                  <Image
+                    src={product.image}
+                    fill
+                    className="rounded-md object-cover "
+                    alt={product.title}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 
-                />
-              </div>
+                  />
+                </div>
+
+              </Link>
               <div className="p-4">
                 <h2 className="text-md font-semibold text-black"> {product.title.length > 30 ? product.title.slice( 0, 30 ) + '...' : product.title}</h2>
                 <p className="text-gray-700">${product.price}</p>
-                <button className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition-colors duration-300">
-                  Comprar
-                </button>
+
               </div>
             </div>
           </div>
