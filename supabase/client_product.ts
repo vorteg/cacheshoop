@@ -1,11 +1,11 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-import { Product } from "../types/product";
+import { Product } from "@/types/product";
 
 
 
-export default async function dto(){
+export async function dto(){
    
  try {
     const supabase = createServerComponentClient({cookies})
@@ -13,30 +13,38 @@ export default async function dto(){
     // const {data:response} = await supabase.from("products").select('*,users(*)');
     // return JSON.stringify(response, null, 2)  ejemplo para probar conexion
 
-    const {data:response} = await supabase.from("products").select();
+    const { data: products, error } = await supabase
+    .from('products')
+    .select('*');   
+      
 
-    if (response !== null) {
-      const products: Product[] = response.map((item: Product) => {
-        const product: Product = {
-          id: item.id,
-          name: item.name,
-          category: item.category,
-          description: item.description,
-          price: item.price,
-          stock_quantity: item.stock_quantity,
-          created_at: item.created_at,
-          updated_at: item.updated_at,
-          is_active: item.is_active,
-          url_img: item.url_img
-        };
-        return product;
-      });
-
-      return products;
+      return <Product[]>products;
     } 
-    } catch (error) {
+     catch (error) {
       console.log(error)
       return []
     }
  
+}
+
+export  async function dtoByID(id:number) {
+  try {
+    const supabase = createServerComponentClient({cookies})
+    // Ejemplo para traer joins
+    // const {data:response} = await supabase.from("products").select('*,users(*)');
+    // return JSON.stringify(response, null, 2)  ejemplo para probar conexion
+
+    const { data: product, error } = await supabase
+    .from('products')
+    .select('*')
+    .eq('id',id)
+    .single();   
+      
+
+      return <Product>product;
+    } 
+     catch (error) {
+      console.log(error)
+      return []
+    }
 }
