@@ -9,12 +9,12 @@ function LiProduct( { product, index }: { product: CProduct, index: number } ) {
 
   const handleDecreaseQuantity = () => {
     const newQuantity = Math.max( product.quantity - 1, 0 );
-    updateProductQuantity( index, newQuantity );
+    updateProductQuantity( product.id, newQuantity );
   };
 
   const handleIncreaseQuantity = () => {
     const newQuantity = product.quantity + 1;
-    updateProductQuantity( index, newQuantity );
+    updateProductQuantity( product.id, newQuantity );
   };
 
 

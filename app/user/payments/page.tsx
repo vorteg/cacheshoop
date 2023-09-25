@@ -1,9 +1,29 @@
+'use client'
+
+import axios from 'axios';
 import Link from 'next/link'
+import { useEffect, useState } from 'react';
 
 
 function page() {
+  const [ purchases, setPurchases ] = useState( '' )
+
+  const fetchPuchased = async () => {
+    try {
+      const response = await axios.get( `${process.env.URL_CALLBACK}/api/userOrder/purchased` ); // Reemplaza con tu ruta real
+      setPurchases( response.data );
+    } catch ( error ) {
+      console.error( 'Error al obtener compras:', error );
+    }
+  };
+
+  useEffect( () => {
+    // Cargar las órdenes cuando el componente se monte
+    fetchPuchased();
+
+  }, [] );
   return (
-    <div className="container mx-auto p-4 grid grid-rows-[10%,auto] gap-5">
+    <div className="container mt-16 mx-auto p-4 grid grid-rows-[10%,auto] gap-5">
       <h1 className="text-2xl mb-16">Listado Compras</h1>
 
       <table className="my-10 w-full">
@@ -16,35 +36,63 @@ function page() {
           </tr>
         </thead>
         <tbody>
-          {/* {orders.map( ( order ) => ( */}
+          {
 
-          <tr key={"order.id"}>
-            <td className="border text-center text-xs">
-              <Link href={`/user/orders/${1}`} >
+            Array.isArray( purchases ) && purchases.length > 0 ? ( purchases.map( ( purchase ) => (
 
-                {"6/12/2023"}
+              <tr key={purchase.id}>
+                <td className="border text-center text-xs">
+                  <Link href={`/user/orders/${1}`} >
 
-              </Link>
-            </td>
+                    {purchase.created_at}
 
-            <td className="border text-center text-xs">
-              <Link href={`/user/orders/${1}`} >
-                {"CSHOOP-2939910"}
-              </Link>
+                  </Link>
+                </td>
 
-            </td>
-            <td className="border text-center text-xs">
-              <Link href={`/user/orders/${1}`} >
+                <td className="border text-center text-xs">
+                  <Link href={`/user/orders/${1}`} >
+                    {purchase.external_reference}
+                  </Link>
 
-                {"Pagado"}
-              </Link>
-            </td>
+                </td>
+                <td className="border text-center text-xs">
+                  <Link href={`/user/orders/${1}`} >
 
-            {/* Agrega más celdas de datos según tus datos */}
-          </tr>
+                    {purchase.status}
+                  </Link>
+                </td>
+
+                {/* Agrega más celdas de datos según tus datos */}
+              </tr>
 
 
-          {/* ) )} */}
+            ) ) ) :
+
+              ( <tr key={"order.id"}>
+                <td className="border text-center text-xs">
+                  <Link href={`/user/orders/${1}`} >
+
+                    no data
+
+                  </Link>
+                </td>
+
+                <td className="border text-center text-xs">
+                  <Link href={`/user/orders/${1}`} >
+                    no data
+                  </Link>
+
+                </td>
+                <td className="border text-center text-xs">
+                  <Link href={`/user/orders/${1}`} >
+
+                    no data
+                  </Link>
+                </td>
+
+                {/* Agrega más celdas de datos según tus datos */}
+              </tr> )
+          }
         </tbody>
       </table>
       <Link href={"/user"} className=''>Regresar a Opciones de usuario</Link>

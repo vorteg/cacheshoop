@@ -14,14 +14,16 @@ export function getNumberProducts () {
 
 export const addToCart = (item: CProduct) => useCartStore.setState((state) =>({cart:[...state.cart,item]}))
 
-export const removeFromCart =(index:number) => useCartStore.setState((state) => {
-    const newCart = [...state.cart];
-    newCart.splice(index, 1);
+export const removeFromCart =(productId:string) => useCartStore.setState((state) => {
+    const newCart = state.cart.filter((item) => item.id !== productId);
     return { cart: newCart };
   })
 
-  export const updateProductQuantity = (index:number, newQuantity:number) => useCartStore.setState((state) => {
+  export const updateProductQuantity = (index:string, newQuantity:number) => useCartStore.setState((state) => {
     const newCart = [...state.cart];
-    newCart[index].quantity = newQuantity;
+    const getProduct = newCart.find( ( item ) => item.id === index )
+    if ( getProduct !== undefined ) {
+        getProduct.quantity = newQuantity;
+    }
     return { cart: newCart };
   })

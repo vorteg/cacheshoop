@@ -14,7 +14,7 @@ function UlCartProdocts() {
     // Función para eliminar un producto del carrito si su cantidad es 0
     const handleRemoveIfZero = ( product: CProduct ) => {
       if ( product.quantity === 0 ) {
-        removeFromCart( cart.indexOf( product ) );
+        removeFromCart( product.id );
       }
     };
 

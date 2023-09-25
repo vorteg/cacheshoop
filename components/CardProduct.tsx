@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
-import { FProduct } from '@/types/fproduct'
+import { Product } from '@/types/product'
 import AddingtoCart from './AddingtoCart';
 
 interface CardProductProps {
-  product: FProduct;
+  product: Product;
   key: number;
 }
 
@@ -14,8 +14,8 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
     <article key={key} className="group relative  rounded-sm border-2 dark:border-white">
       <Link href={`/products/${product.id}`}>
         <Image
-          src={product.image}
-          alt={product.title}
+          src={product.images.data[ 0 ].src}
+          alt={product.images.data[ 0 ].alt}
           className='aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80'
           width={100}
           height={100}
@@ -27,7 +27,7 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
         <div >
           <h3 className="text-sm ">
             <span aria-hidden="true" className="absolute"  ></span>
-            {product.title}
+            {product.name}
           </h3>
         </div>
 
@@ -35,8 +35,8 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
       <div className='flex justify-between'>
         <AddingtoCart product={{
           id: product.id.toString(),
-          title: product.title,
-          picture_url: product.image,
+          title: product.name,
+          picture_url: product.images.data[ 0 ].src,
           quantity: 1,
           unit_price: product.price,
           currency_id: "MXN"
