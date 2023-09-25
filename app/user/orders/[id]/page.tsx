@@ -7,7 +7,7 @@ const orders = [
   {
     reference: "CSHOOP-29831981398",
     products: [ {
-      id: 2,
+      id: 3,
       name: "corte laser",
       price: 15
     } ],

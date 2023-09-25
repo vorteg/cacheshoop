@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Product } from '@/types/product';
 
 export const getProductsAPI = async (): Promise<Product[]> => {
-  const url ="http://localhost:3000/api/products"
+  const url =`${process.env.URL_CALLBACK}/api/products`
   try {
     const response = await axios.get(url);        
     if(response != undefined){

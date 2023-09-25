@@ -22,7 +22,7 @@ function classNames( ...classes: any[] ) {
 
 function page() {
   const params = useParams()
-  const url = `http://localhost:3000/api/products/product?id=${params.id}`
+  const url = `${process.env.URL_CALLBACK}/api/products/product?id=${params.id}`
 
 
   const [ product, setProduct ] = useState<Product | null>( null )
