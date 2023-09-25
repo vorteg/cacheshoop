@@ -9,6 +9,7 @@ import Image from 'next/image';
 import AddingtoCart from '@/components/AddingtoCart';
 import axios from 'axios';
 import { Product, Color, Size } from '@/types/product';
+import { getOneProduct } from '@/utils/one-product'
 
 
 
@@ -22,8 +23,6 @@ function classNames( ...classes: any[] ) {
 
 function page() {
   const params = useParams()
-  const url = `${process.env.URL_CALLBACK}/api/products/product?id=${params.id}`
-
 
   const [ product, setProduct ] = useState<Product | null>( null )
   const [ selectedColor, setSelectedColor ] = useState<Color | null>( null );
@@ -32,14 +31,14 @@ function page() {
   useEffect( () => {
     const getProduct = async () => {
       try {
-        const res = await axios( url );
-        if ( res.data ) {
-          setProduct( res.data );
+        const data = await getOneProduct( params.id.toString() )
+        if ( data ) {
+          setProduct( data );
 
           // Verifica que product.colors.data y product.sizes.data estén definidos
-          if ( res.data.colors && res.data.sizes ) {
-            setSelectedColor( res.data.colors.data[ 0 ] );
-            setSelectedSize( res.data.sizes.data[ 2 ] );
+          if ( data.colors && data.sizes ) {
+            setSelectedColor( data.colors.data[ 0 ] );
+            setSelectedSize( data.sizes.data[ 2 ] );
           }
         }
       } catch ( error ) {

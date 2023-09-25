@@ -1,5 +1,6 @@
 'use client'
 import { Button, buttonVariants } from '@/components/ui';
+import { siteConfig } from '@/config/site';
 import axios from 'axios';
 import Link from 'next/link';
 // pages/orders.tsx
@@ -19,7 +20,7 @@ export default function Orders() {
   // Función para cargar las órdenes (debe realizar la solicitud a tu API)
   const fetchOrders = async () => {
     try {
-      const response = await axios.get( `${process.env.URL_CALLBACK}/api/userOrder/orders` ); // Reemplaza con tu ruta real
+      const response = await axios.get( `${siteConfig.mainUrl}/api/userOrder/orders` ); // Reemplaza con tu ruta real
       setOrders( response.data );
     } catch ( error ) {
       console.error( 'Error al obtener órdenes:', error );
@@ -30,13 +31,13 @@ export default function Orders() {
   const filterOrders = async () => {
     // Filtra las órdenes según los valores de 'filterDate' y 'filterReference'
     if ( filterDate != '' ) {
-      const filteredOrders = await axios( `${process.env.URL_CALLBACK}/api/userOrder/orders?date=${filterDate}` )
+      const filteredOrders = await axios( `${siteConfig.mainUrl}/api/userOrder/orders?date=${filterDate}` )
       setOrders( filteredOrders.data );
 
 
     }
     if ( filterReference != '' ) {
-      const filteredOrders = await axios( `${process.env.URL_CALLBACK}/userOrder/orders?reference=${filterReference}` )
+      const filteredOrders = await axios( `${siteConfig.mainUrl}/userOrder/orders?reference=${filterReference}` )
       setOrders( filteredOrders.data );
 
     }
