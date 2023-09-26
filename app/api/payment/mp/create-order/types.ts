@@ -6,4 +6,5 @@ export type User = {
     email?:string
     avatar_url?:string
     phone?:string
+    address?:string
 }

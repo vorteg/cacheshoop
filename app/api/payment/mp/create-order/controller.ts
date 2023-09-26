@@ -1,7 +1,7 @@
 import {startMercadoPago } from '@/app/api/helpers/config-ml'
 import { CProduct } from "@/app/(store)/Cart/types";
 import * as crypto from 'crypto';
-import dto from "@/supabase/client_user"
+import {dto_read_user} from "@/supabase/client_user"
 import { User } from './types';
 import { dto_save } from "@/supabase/client_preferences"
 import { DateTime } from 'luxon';
@@ -26,7 +26,7 @@ function createExternalReference(){
 }
 
 async function getUser(id:string){
-  const user:User = await dto( id )
+  const user:User = await dto_read_user( id )
   return user
 
 }
@@ -69,9 +69,7 @@ export async function createOrder(cart:CProduct[],user_id:string){
         //     number:  
         // },
         address: {
-            street_name: "Street",
-            street_number: 123,
-            zip_code: "5700"
+            street_name: user.address,
         }},
     notification_url:`${process.env.URL_CALLBACK}/api/payment/mp/webhook`,
     back_urls:{

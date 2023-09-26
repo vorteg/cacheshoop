@@ -6,18 +6,20 @@ import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
 import { Button } from "@/components/ui"
+import AddressInput from '@/components/AddressInput'
 
 
 async function page() {
 
 
+
+
   const supabase = createServerComponentClient( { cookies } )
   const { data: { session } } = await supabase.auth.getSession()
 
-  // if ( session === null ) {
-  //   redirect( '/login' )
-  // }
-
+  if ( session === null ) {
+    redirect( '/login' )
+  }
 
   return (
     <section className='mt-4 mb-16 p-4 grid gap-5 content-center justify-center grid-cols-1 md:mt-16 md:grid-cols-[60%,auto] lg:grid-cols-[45%,auto] xl:grid-cols-[35%,auto] 2xl:grid-cols-[25%,auto]'>
@@ -35,16 +37,7 @@ async function page() {
         <QuotePage />
 
         {/* Botón para continuar con la compra */}
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-2">
-            Dirección:
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              name="address"
-            />
-          </label>
-        </div>
+        <AddressInput id={session?.user.id} />
         <Link href={"/payment"}><Button className='hover:shadow-lg'>Continuar la compra</Button></Link>
 
       </div>
