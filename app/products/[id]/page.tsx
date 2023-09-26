@@ -237,7 +237,7 @@ function page() {
                     quantity: 1,
                     unit_price: product.price,
                     currency_id: "MXN",
-                    description: `color:${selectedColor},tamaño:${selectedSize}`
+                    description: `color:${selectedColor?.name}, tamaño:${selectedSize?.name}`
                   }} buttonProps={{ name: "Agregar al Carrito" }} />
 
                 </div>

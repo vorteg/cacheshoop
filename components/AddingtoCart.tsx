@@ -5,12 +5,14 @@ import { useCartStore } from '@/app/(store)/Cart/slices/cartSlice';
 import { Button } from './ui'
 import { addToCart, updateProductQuantity } from '@/app/(store)/Cart/actions/cartActions'
 import { CProduct } from '@/app/(store)/Cart/types';
+import { Toaster, toast } from 'sonner';
 
 function AddingtoCart( { product, buttonProps }: { product: CProduct, buttonProps?: { name: string } } ) {
 
 
   const handleAddToCart = () => {
     const { cart } = useCartStore.getState()
+    toast.success( 'Producto agregado al carrito :)' )
 
     const existingProduct = cart.find( ( item ) => item.id === product.id );
     if ( existingProduct !== undefined ) {
@@ -28,8 +30,10 @@ function AddingtoCart( { product, buttonProps }: { product: CProduct, buttonProp
 
   }
 
-  return (
+  return ( <>
+    <Toaster position="top-right" />
     <Button className={`${buttonProps ? "w-full" : ""}`} onClick={handleAddToCart}>{buttonProps ? buttonProps.name : "+"}</Button>
+  </>
   )
 }
 

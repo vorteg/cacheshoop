@@ -53,7 +53,7 @@ async function page() {
         Ordenes de Compra
       </Link>
       <div className='grid grid-cols-2 gap-1 '>
-        <Link href={"/user/profile"} className={`${buttonVariants( {
+        <Link href={`/user/profile?u=${session.user.id}`} className={`${buttonVariants( {
           size: "lg",
           variant: "ghost",
         } )} rounded-lg shadow-lg bg-gradient-to-r from-emerald-500 to-esmerald-800`}>

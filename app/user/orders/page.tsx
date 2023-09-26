@@ -52,7 +52,7 @@ export default function Orders() {
   }, [] );
 
   return (
-    <div className="container mx-auto p-4 grid grid-rows-[10%,10%,10%,2%,auto] gap-5">
+    <div className="container my-16 mx-auto p-4 grid grid-rows-[10%,10%,10%,2%,auto] gap-5">
       <h1 className="text-2xl mb-16">Listado de Órdenes de Compra</h1>
       <input
         type="text"
@@ -95,21 +95,22 @@ export default function Orders() {
 
             <tr key={order.id}>
               <td className="border text-center text-xs">
-                <Link href={`/user/orders/${1}`} >
+                <Link href={`/user/orders/${order.id}`} >
 
-                  {order.created_at}
+                  {order.created_at.slice( 0, 10 )}
+
 
                 </Link>
               </td>
 
               <td className="border text-center text-xs">
-                <Link href={`/user/orders/${1}`} >
+                <Link href={`/user/orders/${order.id}`} >
                   {order.reference_id}
                 </Link>
 
               </td>
               <td className="border text-center text-xs">
-                <Link href={`/user/orders/${1}`} >
+                <Link href={`/user/orders/${order.id}`} >
 
                   {order.status}
                 </Link>
@@ -118,24 +119,24 @@ export default function Orders() {
 
             <tr>
               <td className="border text-center text-xs">
-                <Link href={`/user/orders/${1}`} >
 
-                  no data
 
-                </Link>
+                no data
+
+
               </td>
 
               <td className="border text-center text-xs">
-                <Link href={`/user/orders/${1}`} >
-                  no data
-                </Link>
+
+                no data
+
 
               </td>
               <td className="border text-center text-xs">
-                <Link href={`/user/orders/${1}`} >
 
-                  no data
-                </Link>
+
+                no data
+
               </td>
             </tr>
           )
