@@ -5,7 +5,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains:['tailwindui.com','github.com','res.cloudinary.com','img.freepik.com','lumiere-a.akamaihd.net','cdn.pixabay.com','media.rawg.io','via.placeholder.com','fakestoreapi.com']
+    domains:['lh3.googleusercontent.com','avatars.githubusercontent.com','tailwindui.com','github.com','res.cloudinary.com','img.freepik.com','lumiere-a.akamaihd.net','cdn.pixabay.com','media.rawg.io','via.placeholder.com','fakestoreapi.com']
    }
 }
 
