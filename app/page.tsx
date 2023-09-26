@@ -28,7 +28,7 @@ export default async function IndexPage() {
 
       <CardTemplate header="Servicios Online" cardtitle='Conoce nuestros servicios' description='Corte y grabado Laser, Programacion, Diseño Web' bgImage={siteConfig.images.service} url={"/services"} />
       <BannerHowTo />
-      <FloatingButton />
+
     </>
   )
 }

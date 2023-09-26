@@ -10,6 +10,7 @@ import { ThemeProvider } from "@/components/ThemeProvider"
 import CustomFooter from '@/components/CustomFooter'
 import FreeShipping from '@/components/FreeShipping'
 import MobileMenu from "../components/MobileMenu";
+import FloatingButton from '@/components/FloatingButton'
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +56,7 @@ export default function RootLayout( { children }: RootLayoutProps ) {
               </div>
               <div className='max-h-full row-span-1 '>
                 {children}
+                <FloatingButton />
               </div>
 
               <div className='row-span-1'>

@@ -1,5 +1,6 @@
 'use client'
 
+import { siteConfig } from '@/config/site';
 import axios from 'axios';
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
@@ -10,7 +11,7 @@ function page() {
 
   const fetchPuchased = async () => {
     try {
-      const response = await axios.get( `${process.env.URL_CALLBACK}/api/userOrder/purchased` ); // Reemplaza con tu ruta real
+      const response = await axios.get( `${siteConfig.mainUrl}/api/userOrder/purchased` ); // Reemplaza con tu ruta real
       setPurchases( response.data );
     } catch ( error ) {
       console.error( 'Error al obtener compras:', error );

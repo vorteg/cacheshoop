@@ -4,6 +4,7 @@ export const siteConfig = {
   name: "Cache Shoop",
   description:
     "Bienvenidos al mundo Gaming y mucho más!",
+  mainUrl:'https://cacheshoop.vercel.app',
   mainNav: [
     {
       title: "Videojuegos",
