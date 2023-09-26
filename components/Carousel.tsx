@@ -5,22 +5,6 @@ import { FProduct } from '@/types/fproduct';
 import Link from 'next/link';
 
 
-// Datos de ejemplo de productos
-const products = [
-  {
-    id: 1,
-    name: 'Producto 1',
-    price: 19.99,
-    image: 'URL_DE_LA_IMAGEN_1',
-  },
-  {
-    id: 2,
-    name: 'Producto 2',
-    price: 29.99,
-    image: 'URL_DE_LA_IMAGEN_2',
-  },
-  // Agrega más productos según sea necesario
-];
 
 const ProductCarousel = ( { products }: { products: FProduct[] } ) => {
 

@@ -24,7 +24,7 @@ function page() {
 
   }, [] );
   return (
-    <div className="container mt-16 mx-auto p-4 grid grid-rows-[10%,auto] gap-5">
+    <div className="container my-16 mx-auto p-4 grid grid-rows-[10%,auto] gap-5">
       <h1 className="text-2xl mb-16">Listado Compras</h1>
 
       <table className="my-10 w-full">
@@ -43,21 +43,21 @@ function page() {
 
               <tr key={purchase.id}>
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${1}`} >
+                  <Link href={`/user/orders/${purchase.id}`} >
 
-                    {purchase.created_at}
+                    {purchase.created_at.slice( 0, 10 )}
 
                   </Link>
                 </td>
 
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${1}`} >
+                  <Link href={`/user/orders/${purchase.id}`} >
                     {purchase.external_reference}
                   </Link>
 
                 </td>
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${1}`} >
+                  <Link href={`/user/orders/${purchase.id}`} >
 
                     {purchase.status}
                   </Link>
@@ -71,24 +71,23 @@ function page() {
 
               ( <tr key={"order.id"}>
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${1}`} >
 
-                    no data
 
-                  </Link>
+                  no data
+
                 </td>
 
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${1}`} >
-                    no data
-                  </Link>
+
+                  no data
+
 
                 </td>
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${1}`} >
 
-                    no data
-                  </Link>
+
+                  no data
+
                 </td>
 
                 {/* Agrega más celdas de datos según tus datos */}

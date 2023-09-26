@@ -32,14 +32,15 @@ function LiProduct( { product, index }: { product: CProduct, index: number } ) {
         <div className="flex gap-1 items-center mt-2">
           <p>Unidades:</p>
           <div>
-            <button onClick={handleDecreaseQuantity} className="bg-gray-600  px-2 py-1 rounded-l">
+            <button onClick={handleDecreaseQuantity} className="bg-gray-600 text-white text-xs px-2 py-1 rounded-l">
               -
             </button>
             <span className="px-1 md:px-4">{product.quantity}</span> {/* Aquí puedes mostrar la cantidad actual */}
-            <button onClick={handleIncreaseQuantity} className="bg-gray-600  px-2 py-1 rounded-r">
+            <button onClick={handleIncreaseQuantity} className="bg-gray-600 text-white text-xs px-2 py-1 rounded-r">
               +
             </button>
           </div>
+          <p>{product.description}</p>
 
         </div>
         <p className=" p-4 m-2 text-lg font-semibold">${product.quantity * product.unit_price}MXN</p>
