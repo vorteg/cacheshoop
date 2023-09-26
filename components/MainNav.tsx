@@ -12,7 +12,7 @@ interface MainNavProps {
 
 export default function MainNav( { items }: MainNavProps ) {
   return (
-    <div className="flex gap-6 md:gap-10">
+    <div className="flex gap-0">
       <GhostButton>
         <Link href="/" className="flex items-center space-x-2">
           <Image
@@ -29,7 +29,7 @@ export default function MainNav( { items }: MainNavProps ) {
       </GhostButton>
 
       {items?.length ? (
-        <nav className="flex gap-6">
+        <nav className="flex gap-1">
           {items?.map(
             ( item, index ) =>
               item.href && (
