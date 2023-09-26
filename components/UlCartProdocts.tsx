@@ -5,6 +5,7 @@ import LiProduct from './LiProduct'
 import { removeFromCart } from '@/app/(store)/Cart/actions/cartActions';
 import { useEffect } from 'react';
 import { CProduct } from '@/app/(store)/Cart/types';
+import { Toaster, toast } from 'sonner';
 
 function UlCartProdocts() {
   const { cart } = useCartStore();
@@ -15,6 +16,7 @@ function UlCartProdocts() {
     const handleRemoveIfZero = ( product: CProduct ) => {
       if ( product.quantity === 0 ) {
         removeFromCart( product.id );
+        toast.error( 'Producto eliminado del Carrito :(' )
       }
     };
 
@@ -25,18 +27,21 @@ function UlCartProdocts() {
   }, [ cart, removeFromCart ] );
 
   return (
-    <ul className='p-2'>
-      <li className='flex flex-col gap-2 items-center'>
-        {
-          cart?.map( ( product, index ) => (
-            <LiProduct key={index} product={product} index={index} />
-          ) )
-        }
+    <>
+      <Toaster position="top-right" />
+      <ul className='p-2'>
+        <li className='flex flex-col gap-2 items-center'>
+          {
+            cart?.map( ( product, index ) => (
+              <LiProduct key={index} product={product} index={index} />
+            ) )
+          }
 
 
-      </li>
-      {/* Agrega más elementos de lista según sea necesario */}
-    </ul>
+        </li>
+        {/* Agrega más elementos de lista según sea necesario */}
+      </ul>
+    </>
   )
 }
 
