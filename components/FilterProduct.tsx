@@ -1,7 +1,32 @@
+'use client'
+import axios from 'axios';
 import { Button, Icons } from './ui'
+import { useState } from 'react';
+import { siteConfig } from '@/config/site';
+import { filterProductsAction } from '@/app/(store)/storeProducts/actions/productAction';
 
 
 function FilterProduct() {
+
+  const [ page, setPage ] = useState( 1 )
+  const url = `${siteConfig.mainUrl}/api/products/filters`
+
+  const [ filters, setFilters ] = useState( {
+    name: "",
+    condition: "",
+    category: "",
+    order: "",
+    min_price: "",
+    max_price: "",
+  }
+  )
+
+  const handleSubmit = async () => {
+    const response = await axios.post( url, { ...filters, page } )
+    console.log( await response.data )
+    await filterProductsAction( response.data.data )
+  }
+
   return (
     <section className='text-black pt-8 p-4 rounded-md flex flex-col'>
       <p className='text-2xl font-bold mb-4'>Personaliza Búsqueda</p>
@@ -9,18 +34,27 @@ function FilterProduct() {
       <div className="mt-3 space-y-2">
         <div className="flex items-center space-x-2">
           <Button ><Icons.search /></Button>
-          <input type="text" id="nombreProducto" className="dark:text-white w-full p-2 border border-gray-300 rounded-md" />
+          <input
+            onChange={( e ) => setFilters( { ...filters, name: e.target.value } )}
+            type="text" id="nombreProducto" className="dark:text-white w-full p-2 border border-gray-300 rounded-md" />
         </div>
         <label htmlFor="estado" className="text-sm">Condición:</label>
         <div className="flex items-center space-x-2">
           <label className="text-sm">Usado</label>
-          <input type="radio" id="usado" name="estado" value="usado" className="w-4 h-4 text-blue-500" />
+          <input
+            onChange={( e ) => setFilters( { ...filters, condition: e.target.value } )}
+            type="radio" id="usado" name="estado" value="false" className="w-4 h-4 text-blue-500" />
           <label className="text-sm">Nuevo</label>
-          <input type="radio" id="nuevo" name="estado" value="nuevo" className="w-4 h-4 text-blue-500" />
+          <input
+            onChange={( e ) => setFilters( { ...filters, condition: e.target.value } )}
+            type="radio" id="nuevo" name="estado" value="true" className="w-4 h-4 text-blue-500" />
         </div>
         <div className='mt-8'>
           <label htmlFor="categorias" className="text-sm">Categorías:</label>
-          <select id="categorias" className="dark:text-white w-full p-2 border border-gray-300 rounded-md">
+          <select id="categorias"
+            className="dark:text-white w-full p-2 border border-gray-300 rounded-md"
+            onChange={( e ) => setFilters( { ...filters, category: e.target.value } )}
+          >
             <option value="null">Seleccionar</option>
             <option value="videojuegos">Videojuegos</option>
             <option value="adornos">Adornos</option>
@@ -34,19 +68,30 @@ function FilterProduct() {
 
 
         <label htmlFor="ordenar" className="text-sm">Ordenar por:</label>
-        <select id="ordenar" className="dark:text-white w-full p-2 border border-gray-300 rounded-md">
+        <select
+          onChange={( e ) => setFilters( { ...filters, order: e.target.value } )}
+          id="ordenar" className="dark:text-white w-full p-2 border border-gray-300 rounded-md">
           <option value="null">Seleccionar</option>
-          <option value="precioAsc">Precio (menor a mayor)</option>
-          <option value="precioDesc">Precio (mayor a menor)</option>
-          <option value="recientes">Productos Recientes</option>
+          <option value="false">Precio (menor a mayor)</option>
+          <option value="true">Precio (mayor a menor)</option>
+          {/* <option value="recientes">Productos Recientes</option> */}
         </select>
         <div className="flex items-center space-x-2">
           <label htmlFor="precioMin" className="text-sm">Rango de Precio:</label>
-          <input type="number" id="precioMin" placeholder="Mínimo" className="w-1/2 p-2 border border-gray-300 rounded-md" />
-          <input type="number" id="precioMax" placeholder="Máximo" className="w-1/2 p-2 border border-gray-300 rounded-md" />
+          <input
+            onChange={( e ) => setFilters( { ...filters, min_price: e.target.value } )}
+            type="number" id="precioMin" placeholder="Mínimo" className="w-1/2 p-2 border border-gray-300 rounded-md" />
+          <input
+            onChange={( e ) => setFilters( { ...filters, max_price: e.target.value } )}
+            type="number" id="precioMax" placeholder="Máximo" className="w-1/2 p-2 border border-gray-300 rounded-md" />
         </div>
       </div>
-      <Button className='mt-5 bg-black text-white hover:bg-black/75'>Limpiar filtros</Button>
+      <div className='flex gap-2'>
+        <Button className='mt-5 bg-black text-white hover:bg-black/75'>Limpiar filtros</Button>
+        <Button
+          onClick={handleSubmit}
+          className='mt-5 bg-blue-500 text-white hover:bg-black/75'>Aplicar</Button>
+      </div>
     </section>
   )
 }

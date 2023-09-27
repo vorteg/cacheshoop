@@ -1,4 +1,5 @@
 import { siteConfig } from '@/config/site'
+import Link from 'next/link'
 
 
 function page() {
@@ -11,7 +12,9 @@ function page() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
             <div className="bg-gradient-to-r from-indigo-500 to-indigo-800 p-6 rounded-lg shadow-lg">
               <img src={siteConfig.images.services.corte} alt="Service1" className="w-full rounded-lg mb-4" />
-              <h3 className="text-xl font-semibold">Corte Laser</h3>
+              <Link href={"/laser"}>
+                <h3 className="text-xl font-semibold underline underline-offset-auto">Corte Laser</h3>
+              </Link>
               <p className="mt-4">Ofrecemos servicios de corte láser de alta precisión para una variedad de materiales.</p>
               <a href='https://api.whatsapp.com/send?phone=+523318444445&text=Hola, Cotizar Corte/Grabado Laser' className="mt-6 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-full">Solicitar</a>
             </div>

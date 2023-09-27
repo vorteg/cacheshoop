@@ -1,26 +1,26 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import React from 'react'
+
 import { Product } from '@/types/product'
 import AddingtoCart from './AddingtoCart';
 
 interface CardProductProps {
   product: Product;
-  key: number;
 }
 
-const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
+const CardProduct: React.FC<CardProductProps> = ( { product } ) => {
   return (
-    <article key={key} className="group relative  rounded-sm border-2 dark:border-white">
+    <article key={product.id} className="group relative  rounded-sm border-2 dark:border-white">
       <Link href={`/products/${product.id}`}>
-        <Image
-          src={product.images.data[ 0 ].src}
-          alt={product.images.data[ 0 ].alt}
-          className='aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80'
-          width={100}
-          height={100}
-          sizes='(max-width: 768px) 120px, 120px, (max-width: 1024px) 150px, 150px'
-        />
+        <div className="relative aspect-square">
+          <Image
+            src={product.images.data[ 0 ].src}
+            alt={product.images.data[ 0 ].alt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        </div>
       </Link>
 
       <div className='mt-4 flex flex-col justify-between'>
@@ -41,7 +41,7 @@ const CardProduct: React.FC<CardProductProps> = ( { product, key } ) => {
           unit_price: product.price,
           currency_id: "MXN"
         }} />
-        <p className=" text-right text-sm font-medium ">${product.price}</p>
+        <p className=" text-right text-sm font-medium ">${product.price} MXN</p>
       </div>
 
 

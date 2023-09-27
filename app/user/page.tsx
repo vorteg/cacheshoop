@@ -27,7 +27,7 @@ async function page() {
   const order = await fetchOrderData()
 
   return (
-    <section className=' border border-t-2 border-white shadow-white shadow-md rounded-lg mx-4 p-4 pb-8  lg:mx-96 lg:py-60 grid grid-rows-[10%,40%,20%,20%,10%] place-content-center my-12'>
+    <section className='my-20 border border-t-2 border-white shadow-white shadow-md rounded-lg mx-4 p-4 pb-8  lg:mx-96 lg:py-60 grid grid-rows-[10%,40%,20%,20%,10%] place-content-center'>
       <h1 className='text-3xl font-bold mb-4 '>Perfil del Usuario</h1>
       <div className='my-4'>
         <h2 className='font-bold'>Ultima orden de compra</h2>
@@ -60,6 +60,17 @@ async function page() {
           Datos de Perfil
         </Link>
         {auth}
+      </div>
+      <div className='my-5 p-2'>
+        <h2 className="text-sm font-semibold uppercase text-gray-900 dark:text-white">Legal</h2>
+        <ul className="underline underline-offset-auto font-medium text-gray-600 dark:text-gray-400 ">
+          <li >
+            <Link href="/privacy" >¿Cómo cuidamos tu privacidad?</Link>
+          </li>
+          <li className="mb-6">
+            <Link href="about" >Acerca de Nosotros</Link>
+          </li>
+        </ul>
       </div>
     </section>
   )

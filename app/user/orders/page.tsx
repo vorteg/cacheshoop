@@ -145,7 +145,10 @@ export default function Orders() {
           }
         </tbody>
       </table>
-      <Link href={"/user"} className=''>Regresar a Opciones de usuario</Link>
+      <Link href={"/user"} className={`${buttonVariants( {
+        size: "sm",
+        variant: "ghost",
+      } )} my-2 bg-gradient-to-r from-indigo-500 to-indigo-800 p-6 rounded-lg shadow-lg`}>Regresar a Opciones de usuario</Link>
     </div>
   );
 }

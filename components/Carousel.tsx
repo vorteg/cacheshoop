@@ -1,12 +1,12 @@
 
 import Image from 'next/image';
 
-import { FProduct } from '@/types/fproduct';
+import { Product } from '@/types/product';
 import Link from 'next/link';
 
 
 
-const ProductCarousel = ( { products }: { products: FProduct[] } ) => {
+const ProductCarousel = ( { products }: { products: Product[] } ) => {
 
 
   return (
@@ -23,10 +23,10 @@ const ProductCarousel = ( { products }: { products: FProduct[] } ) => {
               <Link href={`/products/${product.id}`} >
                 <div className="relative aspect-square h-64">
                   <Image
-                    src={product.image}
+                    src={product.images.data[ 0 ].src}
                     fill
                     className="rounded-md object-cover "
-                    alt={product.title}
+                    alt={product.images.data[ 0 ].alt}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 
                   />
@@ -34,8 +34,8 @@ const ProductCarousel = ( { products }: { products: FProduct[] } ) => {
 
               </Link>
               <div className="p-4">
-                <h2 className="text-md font-semibold text-black"> {product.title.length > 30 ? product.title.slice( 0, 30 ) + '...' : product.title}</h2>
-                <p className="text-gray-700">${product.price}</p>
+                <h2 className="text-md font-semibold text-black"> {product.name.length > 30 ? product.name.slice( 0, 30 ) + '...' : product.name}</h2>
+                <p className="text-gray-700">${product.price} MXN</p>
 
               </div>
             </div>

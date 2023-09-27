@@ -1,10 +1,22 @@
+import { siteConfig } from '@/config/site'
+import Image from 'next/image'
 
 function page() {
   return (
     <section className='container my-16'>
       <div className=" min-h-screen flex items-center justify-center">
         <div className="max-w-lg p-6  shadow-md rounded-lg">
-          <h1 className="text-3xl font-bold mb-4">Corte y Grabado Láser </h1>
+          <h1 className="text-xl md:text-3xl font-bold mb-4">Corte & Grabado Láser </h1>
+          <div className="relative aspect-square">
+            <Image
+              src={siteConfig.images.laser}
+              alt="portada de corte laser"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+
           <p className="mb-4">
             Nuestro servicio puede ser utilizada para una variedad de proyectos de corte y grabado en diferentes materiales.
           </p>

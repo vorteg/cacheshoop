@@ -7,7 +7,7 @@ function page() {
 
 
       <h1 className="text-[2rem] font-semibold">Genial tu pedido esta siendo despachado!!</h1>
-      <p>Estaremos notificando el estado de tu pedido, encuentra mas detalles en<Link href={'#'}>Mis Ordenes</Link></p>
+      <p>Estaremos notificando el estado de tu pedido, encuentra mas detalles en<Link href={'/user/orders'}>Mis Ordenes</Link></p>
       <p>Contactanos por Whatsapp para cualquier duda o acalaracion.</p>
     </section>
   )
