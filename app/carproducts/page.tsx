@@ -7,6 +7,7 @@ import { cookies } from 'next/headers'
 import Link from 'next/link'
 import { Button } from "@/components/ui"
 import AddressInput from '@/components/AddressInput'
+import BuyButton from '@/components/BuyButton'
 
 
 async function page() {
@@ -38,8 +39,8 @@ async function page() {
 
         {/* Botón para continuar con la compra */}
         <AddressInput id={session?.user.id} />
-        <Link href={"/payment"}><Button className='hover:shadow-lg'>Continuar la compra</Button></Link>
-
+        {/* <Link href={"/payment"}><Button className='hover:shadow-lg'>Continuar la compra</Button></Link> */}
+        <BuyButton />
       </div>
 
     </section >
