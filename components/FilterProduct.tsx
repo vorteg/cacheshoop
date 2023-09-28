@@ -4,10 +4,11 @@ import { Button, Icons } from './ui'
 import { useState } from 'react';
 import { siteConfig } from '@/config/site';
 import { filterProductsAction } from '@/app/(store)/storeProducts/actions/productAction';
+import { useRouter } from 'next/navigation';
 
 
 function FilterProduct() {
-
+  const router = useRouter()
   const [ page, setPage ] = useState( 1 )
   const url = `${siteConfig.mainUrl}/api/products/filters`
 
@@ -23,10 +24,29 @@ function FilterProduct() {
 
   const handleSubmit = async () => {
     const response = await axios.post( url, { ...filters, page } )
-    console.log( await response.data )
+
+    if ( response.data < 12 ) {
+      setPage( 1 )
+    }
     await filterProductsAction( response.data.data )
   }
+  const incrementPage = async () => {
+    setPage( page + 1 )
+    await handleSubmit()
+  }
 
+  const clean = async () => {
+    console.log( "desde clean" )
+    setFilters( {
+      name: "",
+      condition: "true",
+      category: "null",
+      order: "null",
+      min_price: "",
+      max_price: "",
+    } )
+    await handleSubmit()
+  }
   return (
     <section className='text-black pt-8 p-4 rounded-md flex flex-col'>
       <p className='text-2xl font-bold mb-4'>Personaliza Búsqueda</p>
@@ -87,11 +107,17 @@ function FilterProduct() {
         </div>
       </div>
       <div className='flex gap-2'>
-        <Button className='mt-5 bg-black text-white hover:bg-black/75'>Limpiar filtros</Button>
+        <Button
+          onClick={clean}
+          className='mt-5 bg-black text-white hover:bg-black/75'>Limpiar filtros</Button>
         <Button
           onClick={handleSubmit}
           className='mt-5 bg-blue-500 text-white hover:bg-black/75'>Aplicar</Button>
       </div>
+      <Button
+        className='mt-5 bg-black text-white hover:bg-black/75'
+        onClick={incrementPage}
+      >Siguiente Pagina</Button>
     </section>
   )
 }

@@ -10,7 +10,7 @@ interface CardProductProps {
 
 const CardProduct: React.FC<CardProductProps> = ( { product } ) => {
   return (
-    <article key={product.id} className="group relative  rounded-sm border-2 dark:border-white">
+    <article className="group relative  rounded-sm border-2 dark:border-white">
       <Link href={`/products/${product.id}`}>
         <div className="relative aspect-square">
           <Image

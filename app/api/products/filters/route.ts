@@ -10,7 +10,6 @@ export async function POST (request:Request) {
   
   const body = await request.json()
   const data = await dtofiltersSearch(body)
-  console.log(data)
   return NextResponse.json({data})
   // const requestUrl = new URL(request.url)
   // const id = requestUrl.searchParams.get('id')
