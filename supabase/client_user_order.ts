@@ -6,9 +6,8 @@ type UserOrder = {}
 
 export async function dto_save_uo(userOrder:UserOrder) {
   try {
-    const supabase = createServerComponentClient({cookies})
-    const{data:session} = await supabase.auth.getSession()
-    const {data, error} = await supabase.from('userOrder').upsert([{...userOrder,user_id:session?.session?.user.id}])
+    const supabase = createServerComponentClient({cookies})   
+    const {data, error} = await supabase.from('userOrder').upsert([userOrder])
     
     if(error){
       throw error

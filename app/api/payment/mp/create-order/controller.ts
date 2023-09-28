@@ -89,7 +89,7 @@ export async function createOrder(cart:CProduct[],user_id:string){
      const subtotal = cart.reduce(( total: number, product: CProduct ) => total + product.unit_price * product.quantity, 0 )
      const shippingCost = 10
      const total = ( subtotal + shippingCost ).toFixed( 2 ) 
-     dto_save_uo({reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
+     dto_save_uo({user_id:user_id,reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
      return result.body.id
  }else{
   return "no se pudo"
