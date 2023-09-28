@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 
 
-const OrderDetailsPage: React.FC = async ( { params }: any ) => {
+const OrderDetailsPage = async ( { params }: any ) => {
   const id = params?.id
   let order = await dto_read_uo_by_id( id )
   if ( params.id.startsWith( 'CSH' ) ) {
