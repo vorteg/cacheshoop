@@ -18,3 +18,27 @@ export async function dto_save(user_id:string,ext_references:string,signature:st
      console.error('Error al guardar datos en la tabla:', error)
   }
 }
+
+
+
+export async function dto_read_preferences_by_ref(id:string) {
+  try {
+    const supabase = createServerComponentClient({ cookies });
+    const { data, error } = await supabase
+      .from('orderPreferences')
+      .select('*') // Puedes seleccionar las columnas que necesites
+      .eq('ext_references',id)
+      .single()
+
+    if (error) {
+      throw error;
+    }
+    
+    if (data) {
+      return data; // Devuelve el primer (y único) resultado, que es el último registro
+    }
+    throw error;
+  } catch (error) {
+    console.error('Error al obtener el último registro en la tabla:', error);
+  }
+}
