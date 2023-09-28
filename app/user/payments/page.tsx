@@ -1,5 +1,6 @@
 'use client'
 
+import { buttonVariants } from '@/components/ui';
 import { siteConfig } from '@/config/site';
 import axios from 'axios';
 import Link from 'next/link'
@@ -43,7 +44,7 @@ function page() {
 
               <tr key={purchase.id}>
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${purchase.id}`} >
+                  <Link href={`/user/orders/${purchase.external_reference}`} >
 
                     {purchase.created_at.slice( 0, 10 )}
 
@@ -51,13 +52,13 @@ function page() {
                 </td>
 
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${purchase.id}`} >
+                  <Link href={`/user/orders/${purchase.external_reference}`} >
                     {purchase.external_reference}
                   </Link>
 
                 </td>
                 <td className="border text-center text-xs">
-                  <Link href={`/user/orders/${purchase.id}`} >
+                  <Link href={`/user/orders/${purchase.external_reference}`} >
 
                     {purchase.status}
                   </Link>
@@ -95,7 +96,10 @@ function page() {
           }
         </tbody>
       </table>
-      <Link href={"/user"} className=''>Regresar a Opciones de usuario</Link>
+      <Link href={"/user"} className={`${buttonVariants( {
+        size: "sm",
+        variant: "ghost",
+      } )} my-2 bg-gradient-to-r from-indigo-500 to-indigo-800 p-6 rounded-lg shadow-lg`}>Regresar a Opciones de usuario</Link>
     </div>
   )
 }

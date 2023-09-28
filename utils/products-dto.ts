@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { Product } from '@/types/product';
+import { siteConfig } from '@/config/site';
 
 export const getProductsAPI = async (): Promise<Product[]> => {
-  const url =`${process.env.URL_CALLBACK}/api/products`
+  const url =`${siteConfig.mainUrl}/api/products`
   try {
     const response = await axios.get(url);        
     if(response != undefined){

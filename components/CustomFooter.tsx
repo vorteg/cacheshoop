@@ -28,14 +28,14 @@ const CustomFooter = () => {
 
             </div>
             <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
-              <div>
+              <div className='col-span-3'>
                 <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">Legal</h2>
-                <ul className="font-medium text-gray-600 dark:text-gray-400">
+                <ul className="font-medium text-gray-600 dark:text-gray-400 text-end">
                   <li className="mb-4">
-                    <Link href="#" className="hover:underline">Privacy Policy</Link>
+                    <Link href="/privacy" className="hover:underline">¿Cómo cuidamos tu privacidad?</Link>
                   </li>
                   <li>
-                    <Link href="#" className="hover:underline">Terms &amp; Conditions</Link>
+                    <Link href="about" className="hover:underline">Acerca de Nosotros</Link>
                   </li>
                 </ul>
               </div>

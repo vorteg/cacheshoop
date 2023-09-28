@@ -61,6 +61,56 @@ export async function dto_read_uo() {
   }
 }
 
+
+export async function dto_read_uo_by_id(id:string) {
+  try {
+    const supabase = createServerComponentClient({ cookies });
+    const { data, error } = await supabase
+      .from('userOrder')
+      .select('*') // Puedes seleccionar las columnas que necesites
+      .eq('id',id)
+      .single()
+
+    if (error) {
+      throw error;
+    }
+    
+    if (data) {
+      return data; // Devuelve el primer (y único) resultado, que es el último registro
+    }
+    throw error;
+  } catch (error) {
+    console.error('Error al obtener el último registro en la tabla:', error);
+  }
+}
+
+
+export async function dto_read_uo_by_ref(id:string) {
+  try {
+    const supabase = createServerComponentClient({ cookies });
+    const { data, error } = await supabase
+      .from('userOrder')
+      .select('*') // Puedes seleccionar las columnas que necesites
+      .eq('reference_id',id)
+      .single()
+
+    if (error) {
+      throw error;
+    }
+    
+    if (data) {
+      return data; // Devuelve el primer (y único) resultado, que es el último registro
+    }
+    throw error;
+  } catch (error) {
+    console.error('Error al obtener el último registro en la tabla:', error);
+  }
+}
+
+
+
+
+
 export async function dto_read_orders({date,reference}:{date?:string,reference?:string}) {
   try {
     const supabase = createServerComponentClient({ cookies });

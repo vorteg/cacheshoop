@@ -1,15 +1,11 @@
 
-import Image from 'next/image';
-import { Game } from '@/types/game';
-import Link from 'next/link';
-import { readGamesAction, readLoadingGameAction } from '@/app/(store)/storeGames/actions/gameActions';
-import Loading from '../recommendedvideogames/Loading';
-import { readfproductsAction } from '@/app/(store)/storeFProducts/actions/fproductAction';
+
 import ProductCarousel from '../Carousel';
+import { readProductsAction } from '@/app/(store)/storeProducts/actions/productAction';
 
 
 const RecomendedProducts = async () => {
-    const data = await readfproductsAction()
+    const data = await readProductsAction()
 
     if ( data.length === 0 ) {
         return <p>No hay datos disponibles.</p>;
