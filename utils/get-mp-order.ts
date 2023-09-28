@@ -8,11 +8,10 @@ export const getOrderId = async (cart:CProduct[]) => {
         return null
       }
   try {
-    const response = await axios.post(`/api/payment/mp/create-order`,cart);
-   
-    return response // Assuming the response structure has a "results" property
+    const response = await axios.post(`/api/payment/mp/create-order`,cart);     
+    return response.data // Assuming the response structure has a "results" property
   } catch (error) {
     console.error('Error:', error);
-    throw new Error('Failed to fetch order');
+    return ''
   }
 };
