@@ -5,9 +5,12 @@ export const dynamic = 'force-dynamic'
 
 export async function GET(req:NextRequest){
   try {
+      const requestUrl = new URL(req.url)
+      const id='asdasd' 
     
-      const product = await dto_read_uo()  
-      // console.log(response)
+      const product = await dto_read_uo(id)  
+      console.log('desde api')
+      console.log(product)
       return NextResponse.json(product)
 
 

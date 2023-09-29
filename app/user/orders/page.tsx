@@ -20,7 +20,11 @@ export default function Orders() {
   // Función para cargar las órdenes (debe realizar la solicitud a tu API)
   const fetchOrders = async () => {
     try {
-      const response = await axios.get( `${siteConfig.mainUrl}/api/userOrder/orders` ); // Reemplaza con tu ruta real
+      const response = await axios.post( `${siteConfig.mainUrl}/api/userOrder/orders`, {
+        reference: filterReference,
+        date: filterDate,
+        page: 1
+      } );
       setOrders( response.data );
     } catch ( error ) {
       console.error( 'Error al obtener órdenes:', error );
@@ -31,15 +35,14 @@ export default function Orders() {
   const filterOrders = async () => {
     // Filtra las órdenes según los valores de 'filterDate' y 'filterReference'
     if ( filterDate != '' ) {
-      const filteredOrders = await axios( `${siteConfig.mainUrl}/api/userOrder/orders?date=${filterDate}` )
-      setOrders( filteredOrders.data );
+      setFilterReference( '' )
+      await fetchOrders()
 
 
     }
     if ( filterReference != '' ) {
-      const filteredOrders = await axios( `${siteConfig.mainUrl}/userOrder/orders?reference=${filterReference}` )
-      setOrders( filteredOrders.data );
-
+      setFilterDate( '' )
+      await fetchOrders()
     }
 
     // Actualiza el estado 'orders' con las órdenes filtradas
