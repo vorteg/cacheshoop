@@ -15,16 +15,20 @@ export async function POST (request:Request) {
     redirect( '/login' )
   }
   
-  let user_id = ''
-
-  if (session?.user.id)
-    user_id = session?.user.id
-
   
 
-  const body = await request.json()
-  const result = await createOrder(body, user_id)
+  if (session?.user.id)
+     {const user_id = session?.user.id
+    
+      const body = await request.json()
+      
+      const result = await createOrder(body, user_id)
+    
+      return NextResponse.json({data:result, status:200})
+    }
 
-  return NextResponse.json({data:result, status:200})
+    return NextResponse.json({data:"", status:404})
+  
+
   
 }
