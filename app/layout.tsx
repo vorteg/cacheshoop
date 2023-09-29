@@ -25,6 +25,20 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  keywords: [ 'videojuegos', 'videogames', 'corte laser', 'web design', 'tienda en linea', 'cacheshoop', 'cacheshop', 'gatos' ],
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 interface RootLayoutProps {
@@ -37,7 +51,7 @@ export default function RootLayout( { children }: RootLayoutProps ) {
 
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="es" suppressHydrationWarning>
         {/* <head /> */}
         <body
           className={cn(

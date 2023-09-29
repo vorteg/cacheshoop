@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Cache Shoop",
+  name: "Cacheshoop - Tienda en Línea",
   description:
-    "Bienvenidos al mundo Gaming y mucho más!",
+    "Encuentra productos para gatos, videojuegos, corte láser, clases de programación y más en Cacheshoop.",
   mainUrl:'https://cacheshoop.vercel.app',
   // mainUrl:'http://localhost:3000',
   mainNav: [
