@@ -8,7 +8,7 @@ export const receiveWebhook = async (payment:any, id:string,topic:string) => {
   
   try {
     const mp = startMercadoPago()    
-    dto_save_wh({param_id:id,param_topic:topic,data_id:payment['data.id'],type:payment.type})
+    await dto_save_wh({param_id:id,param_topic:topic,data_id:payment['data.id'],type:payment.type})
     if(payment.type === 'payment'){
       const payId: number = parseInt(payment['data.id'], 10)      
       const data = await mp?.payment.findById(payId)
@@ -25,8 +25,8 @@ export const receiveWebhook = async (payment:any, id:string,topic:string) => {
         user_id:order.user_id
      }
      
-     dto_save(dto_payment_data)
-     dto_update_uo(data?.response.external_reference,"aproved")
+     await dto_save(dto_payment_data)
+     await dto_update_uo(data?.response.external_reference,"aproved")
 
 
     }
