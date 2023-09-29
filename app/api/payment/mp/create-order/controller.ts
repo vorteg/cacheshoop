@@ -85,12 +85,12 @@ export async function createOrder(cart:CProduct[],user_id:string){
   })
   
   if (result?.body.id){
-     dto_save(user_id,external_reference,signature,result.body.id)
+     await dto_save(user_id,external_reference,signature,result.body.id)
      const subtotal = cart.reduce(( total: number, product: CProduct ) => total + product.unit_price * product.quantity, 0 )
      const shippingCost = subtotal > 400 ? 0 : 100
      const total = ( subtotal + shippingCost ).toFixed( 2 ) 
-     console.log(user_id)
-     dto_save_uo({user_id:user_id,reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
+     console.log({user_id:user_id,reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
+     await dto_save_uo({user_id:user_id,reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
     
      return result.body.id
  }else{
