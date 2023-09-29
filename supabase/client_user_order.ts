@@ -3,21 +3,21 @@ import { cookies } from 'next/headers';
 
 type UserOrder = {}
 
-
 export async function dto_save_uo(userOrder:UserOrder) {
   try {
-    const supabase = createServerComponentClient({cookies})   
-    const {data, error} = await supabase.from('userOrder').upsert([userOrder])
+    const supabase = createServerComponentClient({ cookies });
     
-    if(error){
-      throw error
-    }
-    if (data){
-      return data
-    }
-  
+    console.log(cookies())
+
+    let { data, error } = await supabase.from('userOrder').select('*')
+    if (error) {
+        throw error;
+      }
+    
+    return data
+    
   } catch (error) {
-     console.error('Error al guardar datos en la tabla:', error)
+    console.error('Error al obtener el último registro en la tabla:', error);
   }
 }
 
@@ -39,24 +39,18 @@ export async function dto_update_uo(reference_id:string|null,status:string) {
 }
 
 
-export async function dto_read_uo() {
+export async function dto_read_uo(id:string) {
   try {
-    const supabase = createServerComponentClient({ cookies });
-    const { data, error } = await supabase
-      .from('userOrder')
-      .select('*') // Puedes seleccionar las columnas que necesites
-      .order('id', { ascending: false }) // Cambia 'tu_columna_de_orden' por la columna que uses para ordenar
-      .limit(1);
 
-    if (error) {
-      throw error;
-    }
-    
-    if (data) {
-      return data[0]; // Devuelve el primer (y único) resultado, que es el último registro
-    }
+    const supabase = createServerComponentClient({cookies})    
+    const { data, error } = await supabase.from('userOrder').select('*')
+    console.log(error)
+    console.log(data)
+    return data
+
   } catch (error) {
     console.error('Error al obtener el último registro en la tabla:', error);
+    return error
   }
 }
 
@@ -106,35 +100,32 @@ export async function dto_read_uo_by_ref(id:string) {
   }
 }
 
+interface Filters {
+  reference?:string
+  date?:string
+  page:1
+}
 
 
 
-
-export async function dto_read_orders({date,reference}:{date?:string,reference?:string}) {
+export async function dto_read_orders(filters:Filters) {
+  const pageSize = 10
+  const from = (filters.page - 1) * pageSize; // Calcular el valor "from" basado en la página actual
+  const to = from + pageSize - 1;
   try {
     const supabase = createServerComponentClient({ cookies });
-    
-    if (reference){
-      let { data, error } = await supabase.from('userOrder').select('*').eq('reference_id',reference)
-      if (error) {
-        throw error;
-      }
-      return data
+    const query = supabase.from('userOrder').select('*')
+    if(filters.reference){
+      query.ilike('reference_id',`%${filters.reference}%`)
     }
-    if (date){
-      let { data, error }= await supabase.from('userOrder').select('*').gte('created_at',date)
-      if (error) {
-        throw error;
-      }
-      return data
+    if(filters.date){
+      query.gt('created_at',filters.date)
     }
+    query.order('created_at',{ascending:true}).limit(pageSize).range(from, to);
 
-    let { data, error } = await supabase.from('userOrder').select('*')
-    if (error) {
-        throw error;
-      }
+    const { data: orders, error } = await query;
     
-    return data
+    return orders
     
   } catch (error) {
     console.error('Error al obtener el último registro en la tabla:', error);
@@ -143,11 +134,14 @@ export async function dto_read_orders({date,reference}:{date?:string,reference?:
 
 export async function dto_read_purchases() {
   try {
+    
     const supabase = createServerComponentClient({ cookies });
+    const { data: { session } } = await supabase.auth.getSession()    
     const { data, error } = await supabase
       .from('payment')
-      .select('*') // Puedes seleccionar las columnas que necesites
-      .order('id', { ascending: false }) // Cambia 'tu_columna_de_orden' por la columna que uses para ordenar
+      .select('*')
+      .eq('user_id',session?.user.id)
+      .order('id', { ascending: false }) 
       .limit(5);
 
     if (error) {
@@ -159,5 +153,6 @@ export async function dto_read_purchases() {
     }
   } catch (error) {
     console.error('Error al obtener el último registro en la tabla:', error);
+    return error
   }
 }
