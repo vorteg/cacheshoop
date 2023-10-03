@@ -5,9 +5,7 @@ import {dto_read_user} from "@/supabase/client_user"
 import { User } from './types';
 import { dto_save } from "@/supabase/client_preferences"
 import { DateTime } from 'luxon';
-
 import { dto_save_uo } from '@/supabase/client_user_order';
-import { getAddress } from '@/app/(store)/userData/actions/userActions'
 import axios from 'axios';
 import { siteConfig } from '@/config/site';
 
@@ -15,7 +13,7 @@ import { siteConfig } from '@/config/site';
 
 async function sendEmail(body:any) {
   try {    
-    axios.post(`${siteConfig.mainUrl}/api/email`, body)    
+    await axios.post(`${siteConfig.mainUrl}/api/email`, body)    
   } catch (error) {
     console.log(error)
   }
@@ -51,10 +49,11 @@ async function saveOrder(user_id:string,order_ref:string,sign:string, preference
 }
 
 
-export async function createOrder(cart:CProduct[],user_id:string){
+export async function createOrder(cart:any,user_id:string){
   const { external_reference, signature } = createExternalReference();
-  const {address} = getAddress() 
   
+  const address:string = cart.address ? cart.address:"No se agrego direccion, favor de ponerse en contacto"
+  const items:CProduct[] = cart.cart
   // Crear una fecha inicial con la zona horaria de México
   const startDate = DateTime.now().setZone('America/Mexico_City');
 
@@ -71,9 +70,9 @@ export async function createOrder(cart:CProduct[],user_id:string){
 
   const result = await mercadopago?.preferences.create({
     statement_descriptor: "CacheShoop",
-    items:cart,
+    items:items,
     shipments:{
-        cost: 0,
+        cost: cart.shippingCost,
         mode: "not_specified",
     },
     payer: {
@@ -100,20 +99,20 @@ export async function createOrder(cart:CProduct[],user_id:string){
   })
   
   if (result?.body.id){
-     await dto_save(user_id,external_reference,signature,result.body.id)
-     const subtotal = cart.reduce(( total: number, product: CProduct ) => total + product.unit_price * product.quantity, 0 )
-     const shippingCost = subtotal > 400 ? 0 : 100 
-     const total = ( subtotal + shippingCost ).toFixed( 2 ) 
-     await dto_save_uo({user_id:user_id,reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
+    await dto_save_uo({user_id:user_id,reference_id:external_reference,preferences:result.body.id,products:items, status:"pending",total:cart.total,delivery_cost:cart.shippingCost.toString()})
+    
+    await dto_save(user_id,external_reference,signature,result.body.id)
+     
+    const total:number = cart.total
     
      const dto_email = {
          email:user.email,
          type:"pending",
          firstName:user.name,
          data:{
-              orden:  `${external_reference}-${signature}`,
-              total: total,
-              products: cart.map((item:any)=>({
+              orden:`${external_reference}-${signature}`,
+              total:total,
+              products: items.map((item)=>({
                 id:item.id,
                 name:item.title,
                 stock_quantity:item.quantity,

@@ -29,6 +29,7 @@ function AddressInput( { id }: { id: string | undefined } ) {
           className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
           name="address"
+          placeholder='Agregar CP calle #int/ext, col/fracc estad, municipio'
           value={addr}
           onChange={( e ) => handleOnChange( e.target.value )}
         />

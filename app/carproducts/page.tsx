@@ -39,7 +39,6 @@ async function page() {
 
         {/* Botón para continuar con la compra */}
         <AddressInput id={session?.user.id} />
-        {/* <Link href={"/payment"}><Button className='hover:shadow-lg'>Continuar la compra</Button></Link> */}
         <BuyButton />
       </div>
 

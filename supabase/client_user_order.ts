@@ -9,7 +9,7 @@ export async function dto_save_uo(userOrder:UserOrder) {
     
   
 
-    let { data, error } = await supabase.from('userOrder').select('*')
+    let { data, error } = await supabase.from('userOrder').upsert([userOrder])
     if (error) {
         throw error;
       }
