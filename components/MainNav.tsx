@@ -23,7 +23,7 @@ export default function MainNav( { items }: MainNavProps ) {
             height={38}
             quality="100"
           />
-          <span className="inline-block font-bold">{siteConfig.name}</span>
+          <span className="inline-block font-bold">Cacheshoop</span>
         </Link>
 
       </GhostButton>

@@ -7,9 +7,24 @@ import { dto_save } from "@/supabase/client_preferences"
 import { DateTime } from 'luxon';
 
 import { dto_save_uo } from '@/supabase/client_user_order';
+import { getAddress } from '@/app/(store)/userData/actions/userActions'
+import axios from 'axios';
+import { siteConfig } from '@/config/site';
+
+
+
+async function sendEmail(body:any) {
+  try {    
+    axios.post(`${siteConfig.mainUrl}/api/email`, body)    
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 function createExternalReference(){
  
+  
   const referenceNumber = Date.now() + Math.floor(Math.random() * 1000);
   const external_reference = `CSHOOP_${referenceNumber}`
   let signature = ''
@@ -38,7 +53,7 @@ async function saveOrder(user_id:string,order_ref:string,sign:string, preference
 
 export async function createOrder(cart:CProduct[],user_id:string){
   const { external_reference, signature } = createExternalReference();
-
+  const {address} = getAddress() 
   
   // Crear una fecha inicial con la zona horaria de México
   const startDate = DateTime.now().setZone('America/Mexico_City');
@@ -69,7 +84,7 @@ export async function createOrder(cart:CProduct[],user_id:string){
         //     number:  
         // },
         address: {
-            street_name: user.address,
+            street_name: address,
         }},
     notification_url:`${process.env.URL_CALLBACK}/api/payment/mp/webhook`,
     back_urls:{
@@ -78,7 +93,7 @@ export async function createOrder(cart:CProduct[],user_id:string){
       pending:`${process.env.URL_CALLBACK}/api/payment/mp/pending`
     },
      auto_return: "approved",
-     external_reference: external_reference,
+     external_reference: `${external_reference}-${signature}`,
      expires: true,
      expiration_date_from: expiration_date_from ? expiration_date_from :'',
      expiration_date_to: expiration_date_to ? expiration_date_to :''
@@ -87,11 +102,31 @@ export async function createOrder(cart:CProduct[],user_id:string){
   if (result?.body.id){
      await dto_save(user_id,external_reference,signature,result.body.id)
      const subtotal = cart.reduce(( total: number, product: CProduct ) => total + product.unit_price * product.quantity, 0 )
-     const shippingCost = subtotal > 400 ? 0 : 100
+     const shippingCost = subtotal > 400 ? 0 : 100 
      const total = ( subtotal + shippingCost ).toFixed( 2 ) 
-     console.log({user_id:user_id,reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
      await dto_save_uo({user_id:user_id,reference_id:external_reference,preferences:result.body.id,products:cart, status:"pending",total,delivery_cost:shippingCost.toString()})
     
+     const dto_email = {
+         email:user.email,
+         type:"pending",
+         firstName:user.name,
+         data:{
+              orden:  `${external_reference}-${signature}`,
+              total: total,
+              products: cart.map((item:any)=>({
+                id:item.id,
+                name:item.title,
+                stock_quantity:item.quantity,
+                price:item.unit_price
+              })), 
+              address:address
+              }
+
+         }
+      
+     await sendEmail(dto_email)
+
+
      return result.body.id
  }else{
   return "no se pudo"

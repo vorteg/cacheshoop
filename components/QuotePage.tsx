@@ -24,6 +24,7 @@ function QuotePage() {
     setTotalCost( updatedTotalCost );
     setSubTotal( updateSubtotal );
     setShippingCost( updatedShippingCost );
+    useCartStore.setState( () => ( { cart_save: cart, shipping: shippingCost, total: totalCost } ) )
   }, [ cart ] );
 
   return (

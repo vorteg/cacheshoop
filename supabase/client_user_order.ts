@@ -7,7 +7,7 @@ export async function dto_save_uo(userOrder:UserOrder) {
   try {
     const supabase = createServerComponentClient({ cookies });
     
-    console.log(cookies())
+  
 
     let { data, error } = await supabase.from('userOrder').select('*')
     if (error) {

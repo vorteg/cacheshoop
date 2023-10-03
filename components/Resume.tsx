@@ -12,7 +12,8 @@ function Resume() {
       <h2 className="text-xl font-semibold mb-4">Resumen de la Compra</h2>
 
       <QuotePage />
-      <p>Direccion de envio : {address}</p>
+      <p className='font-bold'>Direccion de envio : </p>
+      <span>{address}</span>
     </div>
   )
 }

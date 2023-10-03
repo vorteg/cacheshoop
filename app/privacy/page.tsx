@@ -6,9 +6,9 @@ function page() {
     <section className='container my-16'>
       <div className='grid grid-rows-[20%, auto]'>
         <div className='flex flex-col justify-center  bg-slate-300 p-5'>
-          <h1 className='m-5 text-xl font-bold text-center'>DECLARACIÓN DE PRIVACIDAD</h1>
-          <p className='my-2 text-md font-semibold text-center'>Al completar el Formulario de contacto y/o adquirir un producto mediante este sitio web, vamos a recopilar y tratar tu información personal. Por ello, te proporcionamos la siguiente información para que tengas conocimiento acerca de cómo vamos a procesar tus datos y los derechos que tenés para controlarlos.</p>
-          <Icons.games className='w-20' />
+          <h1 className='text-black m-5 text-xl font-bold text-center'>DECLARACIÓN DE PRIVACIDAD</h1>
+          <p className='text-black my-2 text-md font-semibold text-center'>Al completar el Formulario de contacto y/o adquirir un producto mediante este sitio web, vamos a recopilar y tratar tu información personal. Por ello, te proporcionamos la siguiente información para que tengas conocimiento acerca de cómo vamos a procesar tus datos y los derechos que tenés para controlarlos.</p>
+          <Icons.games className='text-black w-20' />
         </div>
         <div className='flex flex-wrap'>
           <div className='max-w-[550px]'>
