@@ -4,8 +4,8 @@ export const siteConfig = {
   name: "Cacheshoop - Tienda en Línea",
   description:
     "Encuentra productos para gatos, videojuegos, corte láser, clases de programación y más en Cacheshoop.",
-  mainUrl:'https://www.cacheshoop.com',
-  // mainUrl:'http://localhost:3000',
+  // mainUrl:'https://www.cacheshoop.com',
+  mainUrl:'http://localhost:3000',
   mainNav: [
     {
       title: "Videojuegos",
@@ -38,6 +38,44 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/cacheshoop",
     car:"/carproducts"
   },
+  kittens:[
+  {
+    name: 'Pan',
+    role: 'La Patrona',
+    imageUrl: 'https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1696356453/cachshoop/kittens/pan_k4zxyp.webp', // Ruta a la imagen del gatito 1
+  },
+  {
+    name: 'Emma',
+    role: 'RH',
+    imageUrl: 'https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1696356453/cachshoop/kittens/ema_rtgpai.webp', // Ruta a la imagen del gatito 1
+  },
+   {
+    name: 'Chaivkosky(chai)',
+    role: 'Marketing',
+    imageUrl: 'https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1696356453/cachshoop/kittens/chai_mogmd0.webp', // Ruta a la imagen del gatito 1
+  },
+   {
+    name: 'Korat',
+    role: 'Influencer',
+    imageUrl: 'https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1696356453/cachshoop/kittens/korat_q9esnm.webp', // Ruta a la imagen del gatito 1
+  },
+   {
+    name: 'Gansua Damian (Gansito)',
+    role: 'Tester',
+    imageUrl: 'https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1696356453/cachshoop/kittens/ganso_vmyx7c.webp', // Ruta a la imagen del gatito 1
+  },
+   {
+    name: 'Doroteo (Zorrito)',
+    role: 'Diler',
+    imageUrl: 'https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1696356453/cachshoop/kittens/zorro_s6ky9i.webp', // Ruta a la imagen del gatito 1
+  },
+   {
+    name: 'Kiky',
+    role: 'Sra. de la Cocina',
+    imageUrl: 'https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1696357762/cachshoop/kittens/gatos_organizacional_ah6kww.webp', // Ruta a la imagen del gatito 1
+  },
+  // Agrega más objetos para los otros gatitos
+],
   images: {
     laser:"https://res.cloudinary.com/dehsikb6h/image/upload/q_auto/v1695836300/cachshoop/heros/cortelaser_portada_kcnpqa.webp",
     logo:"https://res.cloudinary.com/dehsikb6h/image/upload/c_scale,w_44/v1686791940/cachshoop/logo/appicon-style-a-cute-happy-astronaut-siamese-cat--flat-icon-717144716_p7aslq_cxc7q3.webp",

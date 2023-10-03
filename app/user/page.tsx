@@ -42,6 +42,7 @@ async function page() {
     .select( '*' ).order( 'id', { ascending: false } ).limit( 1 )
   const order = data
 
+
   return (
     <section className='my-20 border border-t-2 border-white shadow-white shadow-md rounded-lg mx-4 p-4 pb-8  lg:mx-96 lg:py-60 grid grid-rows-[10%,40%,20%,20%,10%] place-content-center'>
       <h1 className='text-3xl font-bold mb-4 '>Perfil del Usuario</h1>
@@ -49,7 +50,7 @@ async function page() {
         <h2 className='font-bold'>Ultima orden de compra</h2>
         {
 
-          order ? ( <ul>
+          order && order?.length > 0 ? ( <ul>
             <li className='flex space-x-1'><p className='font-semibold '>Referencia:</p>
               <span className='bg-gradient-to-r from-red-400 to-red-600 shadow-lg px-2 text-xs text-white self-center'>{order[ 0 ].reference_id}</span></li>
             <li className='flex space-x-1'><p className='font-semibold '>Name:</p><span>{order[ 0 ].products[ 0 ].title}</span></li>

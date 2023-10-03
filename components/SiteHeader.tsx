@@ -58,10 +58,7 @@ export default async function SiteHeader() {
             </Link>
 
             <ThemeToggle />
-            <div className={buttonVariants( {
-              size: "sm",
-              variant: "ghost",
-            } )}>
+            <div >
 
               {test}
             </div>
