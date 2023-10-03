@@ -32,7 +32,7 @@ const Hero2: React.FC = () => {
 
   return (
     <section className="container max-w-[1320px] max-h-[580] grid items-center gap-6 pb-8 pt-6 md:mt-20">
-      <h1 className=" text-3xl font-semibold">{siteConfig.description}</h1>
+      <h1 className=" text-3xl font-semibold">Bienvenidos al mundo Gaming y mucho más!</h1>
       <div className="relative">
         <Link href={"/laser"}>
           <img

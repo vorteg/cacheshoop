@@ -16,6 +16,11 @@ function AddressInput( { id }: { id: string | undefined } ) {
     }
     getData()
   }, [] )
+
+  const handleOnChange = async ( e: any ) => {
+    setAddr( e )
+    addAddress( addr )
+  }
   return (
     <div className="mb-4">
       <label className="block text-sm font-bold mb-2">
@@ -25,7 +30,7 @@ function AddressInput( { id }: { id: string | undefined } ) {
           type="text"
           name="address"
           value={addr}
-          onChange={( e ) => addAddress( e.target.value )}
+          onChange={( e ) => handleOnChange( e.target.value )}
         />
       </label>
     </div>

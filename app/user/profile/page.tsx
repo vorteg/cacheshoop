@@ -101,7 +101,7 @@ function page() {
               className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               name="address"
-              value={userData.address ? userData.address : " "}
+              value={userData.address ? userData.address : "Estado y municipio:[ejemplo:Zapopan,Jal.]CP:[agregar],calle:[agregar],numero exterior/interior[agregar],colonia/fraccionamienti[agregar] "}
               onChange={( e ) => setUserData( { ...userData, address: e.target.value } )}
             />
           </label>
