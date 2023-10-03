@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Cacheshoop - Tienda en Línea",
   description:
     "Encuentra productos para gatos, videojuegos, corte láser, clases de programación y más en Cacheshoop.",
-  mainUrl:'https://cacheshoop.vercel.app',
+  mainUrl:'https://www.cacheshoop.com',
   // mainUrl:'http://localhost:3000',
   mainNav: [
     {
