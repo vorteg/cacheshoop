@@ -29,7 +29,7 @@ export const receiveWebhook = async (payment:any, id:string,topic:string) => {
         id:payId,
         status:data?.response.status,
         email:data?.response.payer.email,
-        name:data?.response.payer.first_name,
+        name:data?.body.additional_info.payer.first_name,
         external_reference:data?.response.external_reference,
         transaction_amount:data?.response.transaction_amount,
         body:data?.body,
@@ -38,21 +38,22 @@ export const receiveWebhook = async (payment:any, id:string,topic:string) => {
       const dto_email = {
          email:data?.response.payer.email,
          type:"payment",
-         firstName:data?.response.payer.first_name,
+         firstName:data?.body.additional_info.payer.first_name,
          data:{
               orden: data?.response.external_reference,
-              total: data?.response.external_reference,
-              products: data?.body?.additional_info.items?.map((item:any)=>({
-                id:item.id,
+              total: data?.response.transaction_amount,
+              products: data?.body?.additional_info.items?.map((item:any)=>{
+                const prod = {id:item.id,
                 name:item.title,
                 stock_quantity:item.quantity,
-                price:item.unit_price
-              })), 
+                price:item.unit_price}
+                return prod
+              }), 
               address:data?.body.additional_info.payer.address.street_name
               }
 
          }
-      
+    console.log(dto_email)
      await sendEmail(dto_email)
      await dto_save(dto_payment_data)
      await dto_update_uo(data?.response.external_reference,"aproved")

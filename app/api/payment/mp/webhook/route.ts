@@ -12,6 +12,7 @@ export async function POST (request:Request) {
   const id = requestUrl.searchParams.get('id')
   const topic = requestUrl.searchParams.get('topic')
   if (id && topic){
+    console.log(body,id,topic)
     const code = await receiveWebhook(body, id, topic)
     return NextResponse.json({data:'todo chido', code})
 
